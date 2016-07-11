@@ -1,5 +1,8 @@
 class Booking < ApplicationRecord
 
+  has_many :comments
+  has_many :requested_services
+
   belongs_to :cyclist
   belongs_to :mechanic
 
