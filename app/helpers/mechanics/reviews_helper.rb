@@ -1,0 +1,2 @@
+module Mechanics::ReviewsHelper
+end

@@ -1,5 +1,25 @@
 Rails.application.routes.draw do
 
+  namespace :mechanics do
+    get 'reviews/new'
+  end
+
+  namespace :mechanics do
+    get 'reviews/create'
+  end
+
+  namespace :mechanics do
+    get 'reviews/edit'
+  end
+
+  namespace :mechanics do
+    get 'reviews/update'
+  end
+
+  namespace :mechanics do
+    get 'reviews/show'
+  end
+
   namespace :users do
     get 'mechanics/new'
   end
