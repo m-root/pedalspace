@@ -1,0 +1,2 @@
+module Cyclists::BookingsHelper
+end

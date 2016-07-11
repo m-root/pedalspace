@@ -1,5 +1,25 @@
 Rails.application.routes.draw do
 
+  namespace :cyclists do
+    get 'bookings/new'
+  end
+
+  namespace :cyclists do
+    get 'bookings/create'
+  end
+
+  namespace :cyclists do
+    get 'bookings/edit'
+  end
+
+  namespace :cyclists do
+    get 'bookings/update'
+  end
+
+  namespace :cyclists do
+    get 'bookings/show'
+  end
+
   namespace :mechanics do
     get 'reviews/new'
   end
