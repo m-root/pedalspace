@@ -1,7 +1,55 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require_relative 'seedlings'
+
+Cyclist.create!(first_name: "Bob", last_name: "Johnson", email: "bob@verizon.net", password: "testing123", bio: @bio1, avg_rating: 8)
+Cyclist.create!(first_name: "John", last_name: "Bobson", email: "john@cox.net", password: "testing123", bio: @bio2, avg_rating: 9)
+Cyclist.create!(first_name: "James", last_name: "McGill", email: "james@gmail.com", password: "testing123", bio: @bio3, avg_rating: 7)
+Cyclist.create!(first_name: "Graham", last_name: "Deacon", email: "graham@uvic.ca", password: "testing123", bio: @bio4, avg_rating: 8)
+
+Mechanic.create!(first_name: "Fixy", last_name: "McFixit", email: "fixy@bikeworld.com", password: "testing123", bio: @bio5, avg_rating: 8, street_address: "123 Main St.", city: "Victoria", postal_code: "V8Z 3R6")
+Mechanic.create!(first_name: "Henry", last_name: "Logan", email: "henry@shawmail.com", password: "testing123", bio: @bio6, avg_rating: 10, street_address: "4242 Highview Cres", city: "Victoria", postal_code: "V8X 9A3")
+
+Service.create!(mechanic_id: 5, service_name: "Wheel build", service_price: 25)
+Service.create!(mechanic_id: 5, service_name: "Assembly", service_price: 45)
+Service.create!(mechanic_id: 6, service_name: "Tune up", service_price: 35)
+Service.create!(mechanic_id: 6, service_name: "Brake lines", service_price: 30)
+Service.create!(mechanic_id: 6, service_name: "Bottom bracket", service_price: 60)
+Service.create!(mechanic_id: 6, service_name: "Wheel true", service_price: 20)
+
+Booking.create!(cyclist_id: 1, mechanic_id: 5, description: @desc1, status: "active")
+Booking.create!(cyclist_id: 2, mechanic_id: 6, description: @desc2, status: "active")
+Booking.create!(cyclist_id: 3, mechanic_id: 5, description: @desc3, status: "active")
+Booking.create!(cyclist_id: 4, mechanic_id: 6, description: @desc4, status: "active")
+Booking.create!(cyclist_id: 3, mechanic_id: 5, description: @desc5, status: "active")
+Booking.create!(cyclist_id: 2, mechanic_id: 6, description: @desc6, status: "active")
+
+RequestedService.create!(booking_id: 1, service_id: 1)
+RequestedService.create!(booking_id: 1, service_id: 2)
+RequestedService.create!(booking_id: 2, service_id: 3)
+RequestedService.create!(booking_id: 2, service_id: 4)
+RequestedService.create!(booking_id: 3, service_id: 1)
+RequestedService.create!(booking_id: 4, service_id: 6)
+RequestedService.create!(booking_id: 5, service_id: 2)
+RequestedService.create!(booking_id: 6, service_id: 5)
+
+Comment.create!(booking_id: 1, content: @cont1)
+Comment.create!(booking_id: 2, content: @cont2)
+Comment.create!(booking_id: 3, content: @cont3)
+Comment.create!(booking_id: 4, content: @cont4)
+Comment.create!(booking_id: 5, content: @cont5)
+Comment.create!(booking_id: 6, content: @cont6)
+Comment.create!(booking_id: 6, content: @cont7)
+Comment.create!(booking_id: 6, content: @cont8)
+
+ReviewOfMechanic.create!(cyclist_id: 1, mechanic_id: 5, rating: 9, service_expected: true, price_expected: true, comments: @revm1)
+ReviewOfMechanic.create!(cyclist_id: 2, mechanic_id: 6, rating: 8, service_expected: true, price_expected: true, comments: @revm2)
+ReviewOfMechanic.create!(cyclist_id: 3, mechanic_id: 5, rating: 5, service_expected: false, price_expected: true, comments: @revm3)
+ReviewOfMechanic.create!(cyclist_id: 4, mechanic_id: 6, rating: 4, service_expected: true, price_expected: false, comments: @revm4)
+ReviewOfMechanic.create!(cyclist_id: 3, mechanic_id: 5, rating: 7, service_expected: true, price_expected: true, comments: @revm5)
+ReviewOfMechanic.create!(cyclist_id: 2, mechanic_id: 6, rating: 10, service_expected: true, price_expected: true, comments: @revm6)
+
+ReviewOfCyclist.create!(cyclist_id: 1, mechanic_id: 5, rating: 7, did_pay: true, comments: @revc1)
+ReviewOfCyclist.create!(cyclist_id: 2, mechanic_id: 6, rating: 8, did_pay: true, comments: @revc2)
+ReviewOfCyclist.create!(cyclist_id: 3, mechanic_id: 5, rating: 9, did_pay: true, comments: @revc3)
+ReviewOfCyclist.create!(cyclist_id: 4, mechanic_id: 6, rating: 4, did_pay: false, comments: @revc4)
+ReviewOfCyclist.create!(cyclist_id: 3, mechanic_id: 5, rating: 8, did_pay: true, comments: @revc5)
+ReviewOfCyclist.create!(cyclist_id: 2, mechanic_id: 6, rating: 7, did_pay: true, comments: @revc6)
