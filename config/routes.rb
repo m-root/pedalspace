@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'review_of_mechanics/index'
+
+  get 'review_of_mechanics/new'
+
+  get 'review_of_mechanics/create'
+
+  get 'review_of_mechanics/edit'
+
+  get 'review_of_mechanics/update'
+
+  get 'review_of_mechanics/show'
+
   get 'review_of_cyclists/index'
 
   get 'review_of_cyclists/new'
