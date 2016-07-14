@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'mechanics/index'
+
+  get 'mechanics/new'
+
+  get 'mechanics/create'
+
+  get 'mechanics/edit'
+
+  get 'mechanics/update'
+
+  get 'mechanics/show'
+
+  get 'mechanics/delete'
+
   get 'cyclists/index'
 
   get 'cyclists/new'
