@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :cyclists
+  resources :cyclists do
+    resources :bookings, except: :destroy
+  end
 
   resources :mechanics do
     resources :services
