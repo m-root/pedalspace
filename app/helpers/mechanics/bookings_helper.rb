@@ -1,2 +1,0 @@
-module Mechanics::BookingsHelper
-end
