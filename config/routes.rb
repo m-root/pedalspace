@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'cyclists/index'
+
+  get 'cyclists/new'
+
+  get 'cyclists/create'
+
+  get 'cyclists/edit'
+
+  get 'cyclists/update'
+
+  get 'cyclists/show'
+
+  get 'cyclists/delete'
+
   namespace :mechanics do
     get 'bookings/edit'
   end
