@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   resources :cyclists do
     resources :bookings, except: :destroy
+    resources :review_of_cyclist, only: [:index, :show]
+    resources :review_of_mechanic, except: :destroy
   end
 
   resources :mechanics do
