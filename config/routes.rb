@@ -1,5 +1,83 @@
 Rails.application.routes.draw do
 
+  get 'comments/index'
+
+  get 'comments/new'
+
+  get 'comments/create'
+
+  get 'comments/edit'
+
+  get 'comments/update'
+
+  get 'comments/show'
+
+  get 'services/index'
+
+  get 'services/new'
+
+  get 'services/create'
+
+  get 'services/edit'
+
+  get 'services/update'
+
+  get 'services/show'
+
+  get 'services/delete'
+
+  get 'review_of_mechanics/index'
+
+  get 'review_of_mechanics/new'
+
+  get 'review_of_mechanics/create'
+
+  get 'review_of_mechanics/edit'
+
+  get 'review_of_mechanics/update'
+
+  get 'review_of_mechanics/show'
+
+  get 'review_of_cyclists/index'
+
+  get 'review_of_cyclists/new'
+
+  get 'review_of_cyclists/create'
+
+  get 'review_of_cyclists/edit'
+
+  get 'review_of_cyclists/update'
+
+  get 'review_of_cyclists/show'
+
+  get 'mechanics/index'
+
+  get 'mechanics/new'
+
+  get 'mechanics/create'
+
+  get 'mechanics/edit'
+
+  get 'mechanics/update'
+
+  get 'mechanics/show'
+
+  get 'mechanics/delete'
+
+  get 'cyclists/index'
+
+  get 'cyclists/new'
+
+  get 'cyclists/create'
+
+  get 'cyclists/edit'
+
+  get 'cyclists/update'
+
+  get 'cyclists/show'
+
+  get 'cyclists/delete'
+
   namespace :mechanics do
     get 'bookings/edit'
   end
