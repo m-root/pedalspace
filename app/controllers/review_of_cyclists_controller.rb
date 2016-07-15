@@ -19,9 +19,17 @@ class ReviewOfCyclistsController < ApplicationController
   end
 
   def edit
+    @review = ReviewOfCyclist.find(params[:id])
   end
 
   def update
+    @review = ReviewOfCyclist.find(params[:id])
+
+    if @review.update_attributes(review_params)
+      redirect_to cyclist_path
+    else
+      render :edit
+    end
   end
 
   def show
