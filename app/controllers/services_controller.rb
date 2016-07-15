@@ -36,6 +36,13 @@ class ServicesController < ApplicationController
   end
 
   def delete
+    @service = Service.find(params[:id])
+
+    if @service.destroy
+      redirect_to mechanic_services_path
+    else
+      redirect_to mechanic_service_path
+    end
   end
 
   protected
