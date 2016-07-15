@@ -32,6 +32,7 @@ class ReviewOfMechanicsController < ApplicationController
   end
 
   def show
+    @review = ReviewOfMechanic.find(params[:id])
   end
 
   protected
