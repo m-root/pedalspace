@@ -18,9 +18,17 @@ class ServicesController < ApplicationController
   end
 
   def edit
+    @service = Service.find(params[:id])
   end
 
   def update
+    @service = Service.find(params[:id])
+
+    if @service.update_attributes(service_params)
+      redirect_to mechanic_services_path
+    else
+      render :edit
+    end
   end
 
   def show
