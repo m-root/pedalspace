@@ -1,6 +1,4 @@
 class ReviewOfMechanicsController < ApplicationController
-  def index
-  end
 
   def new
     @review = ReviewOfMechanic.new
