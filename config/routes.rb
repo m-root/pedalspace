@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root to: 'application#index'
+
   resources :cyclists do
     resources :bookings, except: :destroy
     resources :review_of_cyclist, only: [:index, :show]
