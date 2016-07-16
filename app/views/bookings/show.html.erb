@@ -1,0 +1,10 @@
+<h1>One Of Your Bookings</h1>
+
+<h2><strong><%= @booking.description %></strong></h2>
+<h3><strong><%= @booking.status %></strong></h3>
+
+<h4>Requested Services</h4>
+<% @booking.services.each do |service| %>
+  <p><%= "Service name: #{service.service_name}" %></p>
+  <p><%= "Service price: #{service.service_price}" %></p>
+<% end %>
