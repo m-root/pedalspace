@@ -5,11 +5,21 @@
 
 <hr>
 
-<h3>Reviews</h3>
+<h3><%= "Reviews About #{@cyclist.first_name} #{@cyclist.last_name}" %></h3>
 <% @cyclist.review_of_cyclists.each do |review| %>
 <p><%= review.comments %></p>
 <p><%= review.did_pay ? "Paid promptly." : "Did not pay promptly." %></p>
 <p><%= "Rating: #{review.rating}" %></p>
 <p><%= "Written by: #{review.mechanic.first_name} #{review.mechanic.last_name}" %></p>
+<p>--------</p>
+<% end %>
+
+<h3><%= "Reviews By #{@cyclist.first_name} #{@cyclist.last_name}" %></h3>
+<% @cyclist.review_of_mechanics.each do |review| %>
+<p><%= review.comments %></p>
+<p><%= review.service_expected ? "Service was as expected." : "Service was not as expected." %></p>
+<p><%= review.price_expected ? "Price was as expected." : "Price was more than expected." %></p>
+<p><%= "Rating: #{review.rating}" %></p>
+<p><%= "Written about: #{review.mechanic.first_name} #{review.mechanic.last_name}" %></p>
 <p>--------</p>
 <% end %>
