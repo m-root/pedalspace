@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   resources :cyclists do
     resources :bookings, except: :destroy
-    resources :review_of_cyclist, only: [:index, :show]
-    resources :review_of_mechanic, except: :destroy
+    resources :review_of_cyclists, only: [:index, :show]
+    resources :review_of_mechanics, except: :destroy
   end
 
   resources :mechanics do
@@ -13,8 +13,8 @@ Rails.application.routes.draw do
     resources :bookings, only: [:index, :edit, :update, :show] do
       resources :comments, except: :destroy
     end
-    resources :review_of_mechanic, only: [:index, :show]
-    resources :review_of_cyclist, except: :destroy
+    resources :review_of_mechanics, only: [:index, :show]
+    resources :review_of_cyclists, except: :destroy
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
