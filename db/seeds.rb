@@ -1,12 +1,12 @@
 require_relative 'seedlings'
 
-Cyclist.create!(first_name: "Bob", last_name: "Johnson", email: "bob@verizon.net", password: "testing123", bio: @bio1, avg_rating: 8)
-Cyclist.create!(first_name: "John", last_name: "Bobson", email: "john@cox.net", password: "testing123", bio: @bio2, avg_rating: 9)
-Cyclist.create!(first_name: "James", last_name: "McGill", email: "james@gmail.com", password: "testing123", bio: @bio3, avg_rating: 7)
-Cyclist.create!(first_name: "Graham", last_name: "Deacon", email: "graham@uvic.ca", password: "testing123", bio: @bio4, avg_rating: 8)
+# Cyclist.create!(first_name: "Bob", last_name: "Johnson", email: "bob@verizon.net", password: "testing123", bio: @bio1, avg_rating: 8)
+# Cyclist.create!(first_name: "John", last_name: "Bobson", email: "john@cox.net", password: "testing123", bio: @bio2, avg_rating: 9)
+# Cyclist.create!(first_name: "James", last_name: "McGill", email: "james@gmail.com", password: "testing123", bio: @bio3, avg_rating: 7)
+# Cyclist.create!(first_name: "Graham", last_name: "Deacon", email: "graham@uvic.ca", password: "testing123", bio: @bio4, avg_rating: 8)
 
-Mechanic.create!(first_name: "Fixy", last_name: "McFixit", email: "fixy@bikeworld.com", password: "testing123", bio: @bio5, avg_rating: 8, street_address: "123 Main St.", city: "Victoria", postal_code: "V8Z 3R6")
-Mechanic.create!(first_name: "Henry", last_name: "Logan", email: "henry@shawmail.com", password: "testing123", bio: @bio6, avg_rating: 10, street_address: "4242 Highview Cres", city: "Victoria", postal_code: "V8X 9A3")
+# Mechanic.create!(first_name: "Fixy", last_name: "McFixit", email: "fixy@bikeworld.com", password: "testing123", bio: @bio5, avg_rating: 8, street_address: "123 Main St.", city: "Victoria", postal_code: "V8Z 3R6")
+# Mechanic.create!(first_name: "Henry", last_name: "Logan", email: "henry@shawmail.com", password: "testing123", bio: @bio6, avg_rating: 10, street_address: "4242 Highview Cres", city: "Victoria", postal_code: "V8X 9A3")
 
 Service.create!(mechanic_id: 5, service_name: "Wheel build", service_price: 25)
 Service.create!(mechanic_id: 5, service_name: "Assembly", service_price: 45)
