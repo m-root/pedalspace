@@ -19,6 +19,7 @@
   <p><%= "Provided expected service: #{review.service_expected}" %></p>
   <p><%= "Charged expected price: #{review.price_expected}" %></p>
   <p><%= "Comments: #{review.comments}" %></p>
+  <p><%= "Review by #{review.cyclist.first_name} #{review.cyclist.last_name}" %></p>
 <% end %>
 
 <h4>Reviews written about cyclists:</h4>
