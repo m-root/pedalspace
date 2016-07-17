@@ -7,10 +7,9 @@ class BookingsController < ApplicationController
   def create
     @cyclist = Cyclist.find(session[:id])
     @booking = @cyclist.bookings.build(booking_params)
-    @booking.status = "Pending"
 
     if @booking.save
-      create_services(params[:services])
+      create_services(params[:service_list])
       redirect_to cyclist_bookings_path
     else
       render :new
@@ -48,7 +47,7 @@ class BookingsController < ApplicationController
   protected
 
   def booking_params
-    params.require(:booking).permit(:mechanic_id, :description, :status)
+    params.require(:booking).permit(:mechanic_id, :description, :status, :service_list)
   end
 
   def create_services(service_list)
