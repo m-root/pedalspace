@@ -1,0 +1,25 @@
+<h1>Request A Service Order</h1>
+
+<% @mechanic = Mechanic.find(:mechanic_id) %>
+
+<%= form_for cyclist_bookings_path do |f| %>
+  <div>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div>
+    <%= f.hidden_field :mechanic_id, value: @mechanic.id %><br>
+  </div>
+  <div>
+    <%= f.hidden_field :status, value: "Pending" %><br>
+  </div>
+  <div>
+    <% for service in @mechanic.services do %>
+      <%= f.label service.service_name %>
+      <%= check_box_tag "service_list[]", service.id %><br>
+    <% end %>
+  </div>
+  <div>
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
