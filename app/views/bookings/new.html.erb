@@ -1,8 +1,8 @@
 <h1>Request A Service Order</h1>
 
-<% @mechanic = Mechanic.find(:mechanic_id) %>
+<% @mechanic = Mechanic.find(params[:mechanic_id]) %>
 
-<%= form_for cyclist_bookings_path do |f| %>
+<%= form_for([:mechanic, @booking]) do |f| %>
   <div>
     <%= f.label :description %><br>
     <%= f.text_field :description %>
