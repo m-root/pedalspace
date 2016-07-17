@@ -128,13 +128,14 @@
   <body>
 
   <!--     This is where the nav bar is rendered in each page of the application -->
-    <%= render :partial => "shared/navbar" unless @index %>
+    <%= render :partial => "shared/navbar" unless 
+            current_page?('/') || current_page?('/users/sign_in') || current_page?('/users/sign_up') %>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-  <div class="container">
-    <%= yield %>
-  </div>div>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
