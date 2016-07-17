@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :mechanics do
     resources :services
-    resources :bookings, only: [:index, :edit, :update, :show] do
+    resources :bookings, except: :destroy do
       resources :comments, except: :destroy
     end
     resources :review_of_mechanics, only: [:index, :show]
