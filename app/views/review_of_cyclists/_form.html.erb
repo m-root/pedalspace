@@ -1,0 +1,20 @@
+<%= form_for([:cyclist, @review]) do |f| %>
+  <div>
+    <%= f.hidden_field :cyclist_id, value: params[:cyclist_id] %>
+  </div>
+  <div>
+    <%= f.label :rating %><br>
+    <%= f.number_field :rating %>
+  </div>
+  <div>
+    <%= f.label :did_pay %><br>
+    <%= f.check_box :did_pay %>
+  </div>
+  <div>
+    <%= f.label :comments %><br>
+    <%= f.text_field :comments %>
+  </div>
+  <div>
+    <%= f.submit "Save" %>
+  </div>
+<% end %>
