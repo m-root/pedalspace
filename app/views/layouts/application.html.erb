@@ -7,9 +7,6 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
   <style type="text/css">
 
     .hidden.menu {
@@ -130,8 +127,14 @@
 
   <body>
 
-    <%= render 'shared/navbar' %>
+  <!--     This is where the nav bar is rendered in each page of the application -->
+    <%= render :partial => "shared/navbar" unless @index %>
 
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+  <div class="container">
     <%= yield %>
+  </div>div>
   </body>
 </html>
