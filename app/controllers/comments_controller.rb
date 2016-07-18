@@ -5,11 +5,11 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @booking = Booking.find(params[:id])
+    @booking = Booking.find(params[:booking_id])
     @comment = @booking.comments.build(comment_params)
 
     if @comment.save
-      redirect_to mechanic_booking_path
+      redirect_to "/mechanics/#{params[:mechanic_id]}/bookings/#{params[:booking_id]}"
     else
       render :new
     end
@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
 
     if @comment.update_attributes(comment_params)
-      redirect_to mechanic_booking_path
+      redirect_to "/mechanics/#{params[:mechanic_id]}/bookings/#{params[:booking_id]}"
     else
       render :edit
     end
