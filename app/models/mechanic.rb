@@ -10,4 +10,8 @@ class Mechanic < User
   validates :city, presence: true
   validates :postal_code, format: { with: /\A[A-Z][0-9][A-Z]\s?[0-9][A-Z][0-9]\Z/ }
 
+  def self.search(service)
+    Mechanic.joins(:services).where("service_name ILIKE ?", "%#{service}%")
+  end
+
 end
