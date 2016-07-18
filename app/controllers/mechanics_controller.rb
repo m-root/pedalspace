@@ -1,7 +1,9 @@
 class MechanicsController < ApplicationController
 
   def index
-    @mechanics = Mechanic.search(search_params)
+    # Commenting out original functionality to make it easier to build business logic views
+    # @mechanics = Mechanic.search(search_params)
+    @mechanics = Mechanic.all
   end
 
   def new

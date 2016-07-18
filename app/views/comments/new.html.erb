@@ -1,2 +1,11 @@
-<h1>Comments#new</h1>
-<p>Find me in app/views/comments/new.html.erb</p>
+<h1>Add A Comment To This Booking</h1>
+
+<%= form_for([:mechanic, :booking, @comment]) do |f| %>
+  <div>
+    <%= f.label :content %><br>
+    <%= f.text_field :content %>
+  </div>
+  <div>
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
