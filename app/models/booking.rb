@@ -10,4 +10,12 @@ class Booking < ApplicationRecord
   validates :description, presence: true
   validates :status, presence: true
 
+  def total_order_cost
+    total_cost = 0
+    self.services.each do |service|
+      total_cost += service.service_price
+    end
+    total_cost
+  end
+
 end
