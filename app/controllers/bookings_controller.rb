@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @cyclist = Cyclist.find(session[:id])
+    @cyclist = Cyclist.find(params[:cyclist_id])
     @booking = @cyclist.bookings.build(booking_params)
 
     if @booking.save
@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
 
     if @booking.update_attributes(booking_params)
-      redirect_to root_path
+      redirect_to cyclist_bookings_path
     else
       render :edit
     end
@@ -38,9 +38,9 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
 
     if @booking.destroy
-      redirect_to root_path
+      redirect_to cyclist_bookings_path
     else
-      redirect_to root_path
+      redirect_to cyclist_bookings_path
     end
   end
 
@@ -52,7 +52,8 @@ class BookingsController < ApplicationController
 
   def create_services(service_list)
     for service in service_list
-      @booking.requested_services.build(booking_id: @booking.id, service_id: service)
+      @requestedservice = @booking.requested_services.build(service_id: service)
+      @requestedservice.save
     end
   end
 
