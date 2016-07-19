@@ -1,8 +1,9 @@
 <h1>Request A Service Order</h1>
 
-<% @mechanic = Mechanic.find(params[:mechanic_id]) %>
+<% @cyclist = Cyclist.find(params[:cyclist_id]) %>
+<% @mechanic = Mechanic.find(5) %>
 
-<%= form_for([:mechanic, @booking]) do |f| %>
+<%= form_for([:cyclist, @booking]) do |f| %>
   <div>
     <%= f.label :description %><br>
     <%= f.text_field :description %>
@@ -11,11 +12,14 @@
     <%= f.hidden_field :mechanic_id, value: @mechanic.id %><br>
   </div>
   <div>
+    <%= f.hidden_field :cyclist_id, value: @cyclist.id %><br>
+  </div>  
+  <div>
     <%= f.hidden_field :status, value: "Pending" %><br>
   </div>
   <div>
     <% for service in @mechanic.services do %>
-      <%= f.label service.service_name %>
+      <%= f.label "#{service.service_name} $(#{service.service_price})" %>
       <%= check_box_tag "service_list[]", service.id %><br>
     <% end %>
   </div>
