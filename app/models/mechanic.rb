@@ -25,7 +25,8 @@ class Mechanic < User
 
   scope :with_service, proc { |service|
     if service.present?
-      joins(:services).where("service_name ILIKE ?", "%#{service}%").distinct
+      terms = split_search_query(service)
+      joins(:services).where('service_name ILIKE ALL (array[?])', terms).distinct
     end
   }
 
@@ -34,5 +35,14 @@ class Mechanic < User
       joins(:services).where("service_price <= ?", "#{price}").distinct
     end
   }
+
+  protected
+
+  def self.split_search_query(query)
+    terms = query.split(" ")
+    regex_terms = terms.map do |term|
+      "%" + term + "%"
+    end
+  end
 
 end
