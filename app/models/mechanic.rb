@@ -12,12 +12,19 @@ class Mechanic < User
 
   def self.search(search_params)
     with_service(search_params[:service])
+      .with_price(search_params[:price])
   end
 
   # Scopes for searching
   scope :with_service, proc { |service|
     if service.present?
       joins(:services).where("service_name ILIKE ?", "%#{service}%").distinct
+    end
+  }
+
+  scope :with_price, proc { |price|
+    if price.present?
+      joins(:services).where("service_price <= ?", "#{price}").distinct
     end
   }
 
