@@ -1,13 +1,14 @@
-<h1>Your Service Order</h1>
+<h1>Your Service Orders</h1>
 
-<% @user = User.find(session[:id]) %>
+<% @user = User.find(params[:cyclist_id]) %>
 <% @user.bookings.each do |booking| %>
   <h3>Service Order</h3>
+  <p><%= "Mechanic: #{booking.mechanic.first_name} #{booking.mechanic.last_name}" %></p>
   <p><%= "Job Description: #{booking.description}" %></p>
   <p><%= "Job Status: #{booking.status}" %></p>
   <h4>Requested Services</h4>
   <% booking.services.each do |service| %>
-    <p><%= "Service name: #{service.service_name}" %></p>
-    <p><%= "Service price: #{service.service_price}" %></p>
+    <p><%= "#{service.service_name} for $#{service.service_price}" %></p>
   <% end %>
+  <p><strong><%= "Total Order Cost: $#{booking.total_order_cost}" %></strong></p>
 <% end %>
