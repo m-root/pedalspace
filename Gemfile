@@ -32,6 +32,10 @@ gem 'json'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
+gem 'therubyracer', platforms: :ruby # or any other runtime
+gem 'less-rails'
+gem 'autoprefixer-rails'
+gem 'semantic-ui-rails'
 #Use Devise Gem for Authentication
 gem 'devise'
 

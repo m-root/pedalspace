@@ -95,6 +95,10 @@
     background: rgba(255,255,255,0.7);
   }
 
+  .rounded {
+    border-radius: 10px;
+  }
+
   @media only screen and (max-width: 700px) {
     .ui.fixed.menu {
       display: none !important;
