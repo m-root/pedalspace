@@ -27,7 +27,9 @@
             <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
           </div>
         </div>
-        <div class="ui fluid large teal submit button">Login</div>
+        <div class="ui fluid large teal submit button">
+        <%= f.submit "Login" %>
+        </div>
       </div>
 
       <div class="ui error message"></div>
