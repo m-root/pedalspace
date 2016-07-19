@@ -11,7 +11,7 @@
               <img src="http://semantic-ui.com/images/avatar2/large/elyse.png">
             </div>
             <div class="content">
-              <div class="header">#{first_name} #{last_name}</div>
+              <div class="header"><%= "#{@cyclist.first_name} #{@cyclist.last_name}" %></div>
               <div class="meta">
                 <a>Location: #{location}</a>
               </div>
@@ -31,8 +31,8 @@
             </div>
           <!-- </div> -->
         </div>
-        <button class="massive ui button">
-            Request a Booking
+        <button class="large ui button">
+            Chat 
         </button>
 
 
@@ -41,19 +41,7 @@
     <div class="ui divider vertical"></div>
     <div class="column">
       <div class="ui segment">
-        <h2 class="ui left floated header">About #{mechanic}</h2>
-          <div class="ui clearing divider"></div>
-          <p> < % Embedded Services % > </p>
-          <ul>
-            <li>Bicycle ipsum service hipster coffee free spoke wrench</li>
-            <li>Bicycle ipsum service hipster coffee free wheel hub</li>
-            <li>Bicycle ipsum service hipster coffee free brooks saddle</li>
-            <li>Bicycle ipsum service hipster coffee free front fork</li>
-            <li>Bicycle ipsum service hipster coffee free saddle bag</li>
-            <li>Bicycle ipsum service hipster coffee free fixed gear</li>
-          </ul>
-        </div class="ui segment">
-          <h2 class="ui left floated header">Reviews</h2>
+        <h2 class="ui left floated header"><%= "Reviews for #{@cyclist.first_name}" %></h2>
           <div class="ui clearing divider"></div>
           <div class="ui card">
             <div class="content">
@@ -74,6 +62,8 @@
               </div>
             </div>
           </div>
+        </div class="ui segment">
+          
 
     </div>
   </div>
