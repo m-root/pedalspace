@@ -1,9 +1,11 @@
 class MechanicsController < ApplicationController
 
   def index
-    # Commenting out original functionality to make it easier to build business logic views
-    # @mechanics = Mechanic.search(search_params)
-    @mechanics = Mechanic.all
+    if params[:city].present? || params[:service].present? || params[:price].present?
+      @mechanics = Mechanic.search(search_params)
+    else
+      @mechanics = Mechanic.all
+    end
   end
 
   def new
@@ -56,7 +58,7 @@ class MechanicsController < ApplicationController
   end
 
   def search_params
-    params.permit(:first_name, :last_name, :city)
+    params.permit(:city, :service, :price)
   end
 
 end
