@@ -31,7 +31,7 @@ class CyclistsController < ApplicationController
   end
 
   def show
-    @cyclist = Cyclist.find(params[:id])
+    # @cyclist = Cyclist.find(params[:id])
   end
 
   def delete
