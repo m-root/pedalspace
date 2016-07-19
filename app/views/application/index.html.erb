@@ -5,31 +5,28 @@
 	  $(document)
 	    .ready(function() {
 
-	      // fix menu when passed
-	      $('.masthead')
-	        .visibility({
-	          once: false,
-	          onBottomPassed: function() {
-	            $('.fixed.menu').transition('fade in');
-	          },
-	          onBottomPassedReverse: function() {
-	            $('.fixed.menu').transition('fade out');
-	          }
-	        })
-	      ;
+	    		   // dropdown
+	 	  	$('.ui.dropdown').dropdown();
 
-	      // create sidebar and attach to menu open
-	      $('.ui.sidebar')
-	        .sidebar('attach events', '.toc.item')
-	      ;
+		      // fix menu when passed
+		      $('.masthead')
+		        .visibility({
+		          once: false,
+		          onBottomPassed: function() {
+		            $('.fixed.menu').transition('fade in');
+		          },
+		          onBottomPassedReverse: function() {
+		            $('.fixed.menu').transition('fade out');
+		          }
+		        });
 
-	    })
-	  ;
+		      // create sidebar and attach to menu open
+		      $('.ui.sidebar')
+		        .sidebar('attach events', '.toc.item');
 
-	  // $(document(function){
-	  // $('.ui.dropdown').dropdown();
+	    });
 
-	  // })
+
 
 	</script>
 
@@ -48,10 +45,20 @@
 		    <a class="item">Careers</a> -->
 		    <div class="right menu">
 		      <div class="item">
-		        <a href='/users/sign_in' class="ui grey basic button">Log in</a>
+		        <a href='/users/sign_in' class="ui animated grey basic button" tabindex="0">
+	          	    <div class="visible content"> Log In </div>
+						  <div class="hidden content">
+						    <i class="right arrow icon"></i>
+						  </div>
+		        </a>
 		      </div>
 		      <div class="item">
-		        <a href='/users/sign_up' class="ui teal button">Join Pedalspace</a>
+		        <a href='/users/sign_up' class="ui vertical animated teal button" tabindex="0">
+		        	<div class="visible content"> Join Pedalspace </div>
+					  <div class="hidden content">
+					    <i class="thumbs outline up icon"></i>
+					  </div>
+		        </a>
 		      </div>
 		    </div>
 		  </div>
@@ -85,8 +92,18 @@
 		        <a class="item">Company</a>
 		        <a class="item">Careers</a> -->
 		        <div class="right item">
-		          <a href='/users/sign_in' class="ui inverted button">Log in</a>
-		          <a href='/users/sign_up' class="ui teal button">Join Pedalspace</a>
+		          <a href='/users/sign_in' class="ui animated inverted button" tabindex="0">
+	          	    <div class="visible content"> Log In </div>
+						  <div class="hidden content">
+						    <i class="right arrow icon"></i>
+						  </div>
+				   </a>
+		          <a href='/users/sign_up' class="ui vertical animated teal button" tabindex="0">
+	                <div class="visible content"> Join Pedalspace </div>
+					  <div class="hidden content">
+					    <i class="thumbs outline up icon"></i>
+					  </div>
+				   </a>
 		        </div>
 		      </div>
 		    </div>
@@ -104,7 +121,7 @@
 		      							<div class="ui search location">
 		      								<div class="ui left icon input">
 		      									<i class="inverted circular teal world icon"></i>
-		      									<input class="prompt" type="text" name="location" placeholder="Enter your location">
+		      									<input class="prompt" type="text" name="location" placeholder="Enter your city...">
 		      								</div>
 		      							</div>
 		      						</div>
