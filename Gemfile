@@ -38,6 +38,8 @@ gem 'autoprefixer-rails'
 gem 'semantic-ui-rails'
 #Use Devise Gem for Authentication
 gem 'devise'
+# Use Geocoder gem for geocoding (converting addresses to latitude/longitude)
+gem 'geocoder'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
