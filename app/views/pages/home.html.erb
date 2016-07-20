@@ -47,98 +47,47 @@
 
 <div class="ui container">
   <div class="ui relaxed divided items">
-    <div class="item">
-      <div class="ui small image">
-        <img src="http://semantic-ui.com/examples/assets/images/wireframe/image.png">
-      </div>
-      <div class="content">
-        <a class="header">Mechanic 1</a>
+
+    <!-- Display each mechanic returned from the database -->
+    <%= @mechanics.each do |mechanic| %>
+      <div class="item">
+
+        <div class="ui small image">
+          <img src="http://semantic-ui.com/examples/assets/images/wireframe/image.png">
+        </div>
+
+        <div class="content">
+          <a class="header"><%= mechanic.full_name %></a>
           <div class="ui right floated animated fade button">
-              <div class="visible content"> Get in touch with #{firstname}
-                  <i class="right chevron icon"></i>
+              <div class="visible content">
+                <%= "Get in touch with #{mechanic.first_name}" %>
+                <i class="right chevron icon"></i>
               </div>
-              <div class="hidden content"> Message Now
-                <i class="mail outline icon">
-              </i></div>
-          </div>
-        <div class="meta">
-          <a>#{proximity}</a>
-          <a>#{city location}</a>
-        </div>
-        <div class="description">
-          A description which may flow for several lines and give context to the content.
-        </div>
-        <div class="extra">
-          <i class="user icon"></i>
-          Username
-        </div>
-        <div class="extra">
-            Rating:
-          <div class="ui star rating" data-max-rating="5"></div>
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <div class="ui small image">
-        <img src="http://semantic-ui.com/examples/assets/images/wireframe/image.png">
-      </div>
-      <div class="content">
-        <a class="header">Mechanic 2</a>
-           <div class="ui right floated animated fade button">
-              <div class="visible content"> Get in touch with #{firstname}
-                  <i class="right chevron icon"></i>
+              <div class="hidden content">
+                Message Now
+                <i class="mail outline icon"></i>
               </div>
-              <div class="hidden content"> Message Now
-                <i class="mail outline icon">
-              </i></div>
           </div>
-        <div class="meta">
-          <a>#{proximity}</a>
-          <a>#{city location}</a>
-        </div>
-        <div class="description">
-          A description which may flow for several lines and give context to the content.
-        </div>
-        <div class="extra">
-          <i class="user icon"></i>
-          Username
-        </div>
-        <div class="extra">
-            Rating:
-          <div class="ui star rating" data-max-rating="5"></div>
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <div class="ui small image">
-        <img src="http://semantic-ui.com/examples/assets/images/wireframe/image.png">
-      </div>
-      <div class="content">
-        <a class="header">Mechanic 3</a>
-          <div class="ui right floated animated fade button">
-              <div class="visible content"> Get in touch with #{firstname}
-                  <i class="right chevron icon"></i>
-              </div>
-              <div class="hidden content"> Message Now
-                <i class="mail outline icon">
-              </i></div>
+          <div class="meta">
+            <!-- Commenting out 'proximity' because this relies on the Google Maps API to calculate and should likely go in a script file -->
+            <!-- <a>#{proximity}</a> -->
+            <a><%= mechanic.city %></a>
           </div>
-        <div class="meta">
-          <a>#{proximity}</a>
-          <a>#{city location}</a>
-        </div>
-        <div class="description">
-          A description which may flow for several lines and give context to the content.
-        </div>
-        <div class="extra">
-          <i class="user icon"></i>
-          Username
-        </div>
-        <div class="extra">
-            Rating:
-          <div class="ui star rating" data-max-rating="5"></div>
-        </div>
-      </div>
-    </div>
+          <div class="description">
+            <%= mechanic.bio %>
+          </div>
+          <div class="extra">
+            <i class="user icon"></i>
+            <%= mechanic.full_name %>  <!-- Replaced 'username' with full name b/c we don't have usernames -->
+          </div>
+          <div class="extra">
+              Rating: <%= mechanic.avg_rating %>
+            <div class="ui star rating" data-max-rating="10"></div>
+          </div>
+        </div> <!-- End 'content' -->
+      </div> <!-- End 'item' -->
+    <% end %>
+    <!-- End of mechanics display -->
+
   </div>
 </div>
