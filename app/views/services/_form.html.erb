@@ -1,0 +1,13 @@
+<%= form_for([:mechanic, @service]) do |f| %>
+  <div>
+    <%= f.label :service_name %><br>
+    <%= f.text_field :service_name %>
+  </div>
+  <div>
+    <%= f.label :service_price %><br>
+    <%= f.number_field :service_price %>
+  </div>
+  <div>
+    <%= f.submit "Save" %>
+  </div>
+<% end %>
