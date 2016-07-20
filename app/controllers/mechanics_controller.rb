@@ -25,11 +25,11 @@ class MechanicsController < ApplicationController
   end
 
   def edit
-    @mechanic = Mechanic.find(params[:id])
+    @mechanic = Mechanic.find(session[:id])
   end
 
   def update
-    @mechanic = Mechanic.find(params[:id])
+    @mechanic = Mechanic.find(session[:id])
 
     if @mechanic.update_attributes(mechanic_params)
       redirect_to mechanic_path
@@ -39,11 +39,11 @@ class MechanicsController < ApplicationController
   end
 
   def show
-    @mechanic = Mechanic.find(params[:id])
+    @mechanic = Mechanic.find(session[:id])
   end
 
   def delete
-    @mechanic = Mechanic.find(params[:id])
+    @mechanic = Mechanic.find(session[:id])
     if @mechanic.destroy
       redirect_to mechanics_path
     else

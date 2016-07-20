@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @cyclist = Cyclist.find(params[:cyclist_id])
+    @cyclist = Cyclist.find(session[:id])
     @booking = @cyclist.bookings.build(booking_params)
 
     if @booking.save
