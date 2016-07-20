@@ -5,13 +5,11 @@
 
 <h4>Requested Services</h4>
 <% @booking.services.each do |service| %>
-  <p><%= "Service name: #{service.service_name}" %></p>
-  <p><%= "Service price: #{service.service_price}" %></p>
-  <hr>
-  <h4>Comments</h4>
-    <% @booking.comments.each do |comment| %>
-    <p><%= comment.content %></p>
-    <p><%= "Date: #{comment.created_at}" %>
-    <p>-----</p>
-  <% end %>
+  <p><%= "#{service.service_name} for #{service.service_price}" %></p>
+<% end %>
+<h4>Comments</h4>
+<% @booking.comments.each do |comment| %>
+  <p><%= comment.content %></p>
+  <p><%= "Date: #{comment.created_at}" %>
+  <p>-----</p>
 <% end %>

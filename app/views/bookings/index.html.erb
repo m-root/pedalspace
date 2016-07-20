@@ -1,6 +1,6 @@
 <h1>Your Service Orders</h1>
 
-<% @user = User.find(params[:cyclist_id]) %>
+<% @user = User.find(session[:id]) %>
 <% @user.bookings.each do |booking| %>
   <h3>Service Order</h3>
   <p><%= "Mechanic: #{booking.mechanic.first_name} #{booking.mechanic.last_name}" %></p>

@@ -17,11 +17,11 @@ class CyclistsController < ApplicationController
   end
 
   def edit
-    @cyclist = Cyclist.find(params[:id])
+    @cyclist = Cyclist.find(session[:id])
   end
 
   def update
-    @cyclist = Cyclist.find(params[:id])
+    @cyclist = Cyclist.find(session[:id])
 
     if @cyclist.update_attributes(cyclist_params)
       redirect_to cyclist_path
@@ -31,11 +31,11 @@ class CyclistsController < ApplicationController
   end
 
   def show
-    @cyclist = Cyclist.find(params[:id])
+    @cyclist = Cyclist.find(session[:id])
   end
 
   def delete
-    @cyclist = Cyclist.find(params[:id])
+    @cyclist = Cyclist.find(session[:id])
     if @cyclist.destroy
       redirect_to mechanics_path
     else

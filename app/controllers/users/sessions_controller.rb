@@ -8,7 +8,19 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /users/sign_in
   def create
-    super
+    self.resource = warden.authenticate!(auth_options)
+    set_flash_message!(:notice, :signed_in)
+    sign_in(resource_name, resource)
+
+    if resource.save && resource.is_a?(Cyclist)
+      session[:id] = resource.id
+      redirect_to "/cyclists/#{resource.id}"
+    elsif resource.save && resource.is_a?(Mechanic)
+      session[:id] = resource.id
+      redirect_to "/mechanics/#{resource.id}"     
+    else
+      render :new
+    end
   end
 
   # DELETE /resource/sign_out
