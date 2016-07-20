@@ -76,12 +76,21 @@
                       <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Please confirm your password" %>
                 </div>
         </div>
-
-        <div class="field">
-            <%= f.radio_button(:type, "Cyclist", checked: true) %>
-            <%= f.label("I'm looking for a Pedalspace mechanic.") %>
-            <%= f.radio_button(:type, "Mechanic") %>
-            <%= f.label("I'm a mechanic looking to set up a Pedalspace.") %> 
+        <div class="ui form">
+          <div class="grouped fields">
+            <div class="field">
+              <div class="ui slider checkbox">
+                <%= f.radio_button(:type, "Cyclist", checked: true) %>
+                <%= f.label("I'm looking for a Pedalspace mechanic.") %>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui slider checkbox">
+                <%= f.radio_button(:type, "Mechanic") %>
+                <%= f.label("I'm a mechanic looking to set up a Pedalspace.") %>
+              </div>
+            </div> 
+          </div>
         </div>
       
        <div class="ui fluid large teal submit button">
