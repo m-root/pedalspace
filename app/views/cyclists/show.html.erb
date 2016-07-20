@@ -1,25 +1,99 @@
-<h1><%= "#{@cyclist.first_name} #{@cyclist.last_name}" %></h1>
-<p><%= "Profile: #{@cyclist.bio}" %></p>
 
-<p><%= "Average Rating: #{@cyclist.avg_rating}" %></p>
+<div class="container">
+  
+  <div class="ui stackable two column very relaxed grid container" style="position:relative;">
+    <div class="column">
+      <div class="ui segment">
+        
+        <!-- <div class="ui link cards"> -->
+          <div class="ui card">
+            <div class="image">
+              <img src="http://semantic-ui.com/images/avatar2/large/elyse.png">
+            </div>
+            <div class="content">
+              <div class="header"><%= "#{@cyclist.first_name} #{@cyclist.last_name}" %></div>
+              <div class="meta">
+                <a>Location: #{location}</a>
+              </div>
+              <div class="description">
+                Having worked 15 years in a bike shop, I have a supreme love of bikes and tinkering with them! 
+                Specialize in Mtn bikes, but happy to do some work on the odd road bike! Send me a message!
+              </div>
+            </div>
+            <div class="extra content">
+              <span class="right floated">
+                Joined #{date} #{year}
+              </span>
+              <span>
+                <i class="user icon"></i>
+                15 Bookings
+              </span>
+            </div>
+          <!-- </div> -->
+        </div>
+        <button class="large ui button">
+            Chat 
+        </button>
 
-<hr>
 
-<h3><%= "Reviews About #{@cyclist.first_name} #{@cyclist.last_name}" %></h3>
-<% @cyclist.review_of_cyclists.each do |review| %>
-<p><%= review.comments %></p>
-<p><%= review.did_pay ? "Paid promptly." : "Did not pay promptly." %></p>
-<p><%= "Rating: #{review.rating}" %></p>
-<p><%= "Written by: #{review.mechanic.first_name} #{review.mechanic.last_name}" %></p>
-<p>--------</p>
-<% end %>
+      </div>
+    </div>
+    <div class="ui divider vertical"></div>
+    <div class="column">
+      <div class="ui segment">
+        <h2 class="ui left floated header"><%= "Reviews for #{@cyclist.first_name}" %></h2>
+          <div class="ui clearing divider"></div>
+          <div class="ui card">
+            <div class="content">
+              <div class="header">Thanks for the help</div>
+              <div class="meta">
+                <span class="right floated time">2 days ago</span>
+                <span class="category">
+                  <div class="ui mini star rating" data-max-rating="5" data-rating="4"></div>
+                </span>
+              </div>
+              <div class="description">
+                <p>Super great service! It was so great to have Micheal here to get my bottom bracket working</p>
+              </div>
+            </div>
+            <div class="extra content">
+              <div class="right floated author">
+                <img class="ui avatar image" src="http://semantic-ui.com/examples/assets/images/wireframe/image.png"> Matt
+              </div>
+            </div>
+          </div>
+        </div class="ui segment">
+          
 
-<h3><%= "Reviews By #{@cyclist.first_name} #{@cyclist.last_name}" %></h3>
-<% @cyclist.review_of_mechanics.each do |review| %>
-<p><%= review.comments %></p>
-<p><%= review.service_expected ? "Service was as expected." : "Service was not as expected." %></p>
-<p><%= review.price_expected ? "Price was as expected." : "Price was more than expected." %></p>
-<p><%= "Rating: #{review.rating}" %></p>
-<p><%= "Written about: #{review.mechanic.first_name} #{review.mechanic.last_name}" %></p>
-<p>--------</p>
-<% end %>
+    </div>
+  </div>
+
+
+
+
+<!-- <body>
+    <div class="ui page grid">
+        <div class="three column row">
+            <div class="column"> Horizontal section, column 1</div>
+            <div class="column"> Horizontal section, column 2</div>
+            <div class="column"> Horizontal section, column 3</div>
+        </div>
+        <div class="two column row">
+            <div class="column">
+                <div class="row"> Right column, row 1</div>
+                <div class="row"> Right column, row 2</div>
+            </div>
+            <div class="column"> 
+                <div class="row"> Left column, row 1</div>
+                <div class="row"> Left column, row 2</div>
+                <div class="row"> Left column, row 3</div>
+            </div>
+        </div>
+    </div>
+</body> -->
+
+
+
+
+  </div>
+

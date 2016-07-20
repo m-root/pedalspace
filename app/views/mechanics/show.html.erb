@@ -1,32 +1,85 @@
-<h1>Mechanics#show</h1>
-<p>Find me in app/views/mechanics/show.html.erb</p>
 
-<hr />
+<div class="container">
+  
+  <div class="ui stackable two column very relaxed grid container" style="position:relative;">
+    <div class="column">
+      <div class="ui segment">
+        
+        <!-- <div class="ui link cards"> -->
+          <div class="ui card">
+            <div class="image">
+              <img src="http://semantic-ui.com/images/avatar2/large/elyse.png">
+            </div>
+            <div class="content">
+              <div class="header"><%= "#{@mechanic.first_name} #{@mechanic.last_name}" %></div>
+              <div class="meta">
+                <a>Location: #{location}</a>
+              </div>
+              <div class="description">
+                <%= "#{@mechanic.bio}" %>
+              </div>
+            </div>
+            <div class="extra content">
+              <span class="right floated">
+                Joined #{date} #{year}
+              </span>
+              <span>
+                <i class="user icon"></i>
+                15 Bookings
+              </span>
+            </div>
+          <!-- </div> -->
+        </div>
+        <button class="massive ui button">
+            Request a Booking
+        </button>
 
-<h3><%= "#{@mechanic.first_name} #{@mechanic.last_name}" %></h3>
-<p><%= "Profile: #{@mechanic.bio}" %></p>
-<p><%= "Average rating: #{@mechanic.avg_rating}" %></p>
 
-<h4>Services offered:</h4>
-<% @mechanic.services.each do |service| %>
-  <p><%= "Service: #{service.service_name} | Price: $#{service.service_price}" %></p>
-<% end %>
+      </div>
+    </div>
+    <div class="ui divider vertical"></div>
+    <div class="column">
+      <div class="ui segment">
+        <h2 class="ui left floated header"><%= "#{@mechanic.first_name}'s Service Menu" %></h2>
+          <div class="ui clearing divider"></div>
+          <ul>
+          <% @mechanic.services.each do |service| %>
+            <li><%= "Service: #{service.service_name} | Price: $#{service.service_price}" %></li>
+          <% end %>
+          </ul>
+        </div class="ui segment">
+          <h2 class="ui left floated header">Reviews</h2>
+          <div class="ui clearing divider"></div>
+          <div class="ui card">
+            <div class="content">
+              <div class="header">Thanks for the help</div>
+              <div class="meta">
+                <span class="right floated time">2 days ago</span>
+                <span class="category">
+                  <div class="ui mini star rating" data-max-rating="10" data-rating="4"></div>
+                </span>
+              </div>
+              <div class="description">
+                <div class="right floated author">
+                <img class="ui avatar image" src="http://semantic-ui.com/examples/assets/images/wireframe/image.png"> 
+                < %= "#{review.cyclist.first_name}" %>
+                </div>
+                <p>< %= "#{review.comments}" %></p>
+              </div>
+            </div>
+            <div class="extra content">
+              <div class="right floated author">
+                <i class="configure icon"></i>
+                < %= "Provided expected service: #{review.service_expected}" %>
+              </div>
+            </div>
+            <div class="extra content">
+              <div class="right floated author">
+                <i class="dollar icon"></i>
+                < %= "Charged expected price: #{review.price_expected}" %>
+              </div>
+            </div>
+          </div>
 
-<h4>Reviews received from cyclists:</h4>
-<% @mechanic.review_of_mechanics.each do |review| %>
-  <p><strong>Review</strong></p>
-  <p><%= "Rating: #{review.rating}" %></p>
-  <p><%= "Provided expected service: #{review.service_expected}" %></p>
-  <p><%= "Charged expected price: #{review.price_expected}" %></p>
-  <p><%= "Comments: #{review.comments}" %></p>
-  <p><%= "Review by #{review.cyclist.first_name} #{review.cyclist.last_name}" %></p>
-<% end %>
-
-<h4>Reviews written about cyclists:</h4>
-<% @mechanic.review_of_cyclists.each do |review| %>
-  <p><strong>Review</strong></p>
-  <p><%= "Review of #{review.cyclist.first_name} #{review.cyclist.last_name}" %></p>
-  <p><%= "Rating: #{review.rating}" %></p>
-  <p><%= "Paid the price agreed to: #{review.did_pay}" %></p>
-  <p><%= "Comments: #{review.comments}" %></p>
-<% end %>
+    </div>
+  </div>
