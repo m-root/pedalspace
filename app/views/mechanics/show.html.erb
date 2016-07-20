@@ -13,7 +13,7 @@
             <div class="content">
               <div class="header"><%= "#{@mechanic.first_name} #{@mechanic.last_name}" %></div>
               <div class="meta">
-                <a>Location: #{location}</a>
+                <a><%= "Location: #{@mechanic.city}" %> </a>
               </div>
               <div class="description">
                 <%= "#{@mechanic.bio}" %>
@@ -21,17 +21,17 @@
             </div>
             <div class="extra content">
               <span class="right floated">
-                Joined #{date} #{year}
+                <%= "Joined #{@mechanic.created_at}" %>
               </span>
               <span>
                 <i class="user icon"></i>
-                15 Bookings
+                <%= "Service Orders: #{@mechanic.bookings.count}" %>
               </span>
             </div>
           <!-- </div> -->
         </div>
         <button class="massive ui button">
-            Request a Booking
+            Request a Service Order
         </button>
 
 
@@ -62,21 +62,22 @@
               <div class="description">
                 <div class="right floated author">
                 <img class="ui avatar image" src="http://semantic-ui.com/examples/assets/images/wireframe/image.png"> 
-                < %= "#{review.cyclist.first_name}" %>
+                <%= "#{@mechanic.review_of_mechanics.first.cyclist.first_name}" %>
                 </div>
-                <p>< %= "#{review.comments}" %></p>
+                <p><%= "#{@mechanic.review_of_mechanics.first.comments}" %></p>
+                <p><%= "Rating: #{@mechanic.review_of_mechanics.first.rating}" %></p>
               </div>
             </div>
             <div class="extra content">
-              <div class="right floated author">
+              <div class="left floated author">
                 <i class="configure icon"></i>
-                < %= "Provided expected service: #{review.service_expected}" %>
+                <%= "Provided expected service: #{@mechanic.review_of_mechanics.first.service_expected}" %>
               </div>
             </div>
             <div class="extra content">
-              <div class="right floated author">
+              <div class="left floated author">
                 <i class="dollar icon"></i>
-                < %= "Charged expected price: #{review.price_expected}" %>
+                <%= "Charged expected price: #{@mechanic.review_of_mechanics.first.price_expected}" %>
               </div>
             </div>
           </div>
