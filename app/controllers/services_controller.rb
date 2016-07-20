@@ -33,7 +33,8 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
   end
 
-  def delete
+  def destroy
+    @mechanic = Mechanic.find(session[:id])
     @service = Service.find(params[:id])
 
     if @service.destroy
