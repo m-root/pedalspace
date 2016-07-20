@@ -44,10 +44,16 @@
           <div class="ui clearing divider"></div>
           <ul>
           <% @mechanic.services.each do |service| %>
-            <li><%= "Service: #{service.service_name} | Price: $#{service.service_price}" %></li>
+            <li><%= "#{service.service_name} for $#{service.service_price}" %></li>
           <% end %>
           </ul>
+          <button class="large ui button">
+            <%= button_to "Add A Service", new_mechanic_service_path(@mechanic), {method: :get} %>
+          </button>
+
         </div class="ui segment">
+
+
           <h2 class="ui left floated header">Reviews</h2>
           <div class="ui clearing divider"></div>
           <div class="ui card">
