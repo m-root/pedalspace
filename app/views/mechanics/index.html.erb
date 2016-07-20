@@ -1,2 +1,24 @@
 <h1>Mechanics#index</h1>
 <p>Find me in app/views/mechanics/index.html.erb</p>
+
+<hr />
+
+<% @mechanics.each do |mechanic| %>
+  <h3><%= "#{mechanic.first_name} #{mechanic.last_name}" %></h3>
+  <p><%= "Profile: #{mechanic.bio}" %></p>
+  <p><%= "Average rating: #{mechanic.avg_rating}" %></p>
+
+  <h4>Services offered:</h4>
+  <% mechanic.services.each do |service| %>
+    <p><%= "Service: #{service.service_name} | Price: $#{service.service_price}" %></p>
+  <% end %>
+
+  <% mechanic.review_of_mechanics.each do |review| %>
+    <p><strong>Review</strong></p>
+    <p><%= "Rating: #{review.rating}" %></p>
+    <p><%= "Provided expected service: #{review.service_expected}" %></p>
+    <p><%= "Charged expected price: #{review.price_expected}" %></p>
+    <p><%= "Comments: #{review.comments}" %></p>
+  <% end %>
+
+<% end %>

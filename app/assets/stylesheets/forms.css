@@ -1,0 +1,21 @@
+  body {
+      background-color: #DADADA;
+    }
+    body > .grid {
+      height: 100%;
+    }
+    .image {
+      margin-top: -100px;
+    }
+    .column {
+      max-width: 450px;
+    }
+
+    .choice-card{
+      width: 100%;
+      padding: 10px 20px 10px 20px;
+    }
+
+    .fill {
+      width: 100% !important;
+    } 

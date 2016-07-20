@@ -1,7 +1,11 @@
 class MechanicsController < ApplicationController
 
   def index
-    @mechanics = Mechanic.search(search_params)
+    if params[:city].present? || params[:service].present? || params[:price].present?
+      @mechanics = Mechanic.search(search_params)
+    else
+      @mechanics = Mechanic.all
+    end
   end
 
   def new
@@ -54,7 +58,7 @@ class MechanicsController < ApplicationController
   end
 
   def search_params
-    params.permit(:first_name, :last_name, :city)
+    params.permit(:city, :service, :price)
   end
 
 end
