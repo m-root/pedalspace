@@ -29,6 +29,22 @@ function initMap() {
     handleLocationError(false, infoWindow, map.getCenter());
   }
 
+  // Add mechanics to map
+  $.ajax({
+    type: 'GET',
+    url: 'home',
+    dataType: 'json',
+    success: function (data) {
+        $.each(data, function(index, mechanic) {
+          new google.maps.Marker({
+            position: {lat: mechanic.latitude, lng: mechanic.longitude},
+            map: map,
+            title: mechanic.first_name
+          });
+        });
+      }
+  });
+  
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -37,13 +53,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                         'Error: The Geolocation service failed.' :
                         'Error: Your browser doesn\'t support geolocation.');
 }
-
-// Test adding marker on Victoria
-var marker = new google.maps.Marker({
-  position: {lat: 48.4284, lng: -123.3656},
-  map: map,
-  title: 'Hello World!'
-});
 
 
 // PREVIOUS CODE
