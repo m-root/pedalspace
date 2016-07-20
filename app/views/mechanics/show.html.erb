@@ -44,7 +44,9 @@
           <div class="ui clearing divider"></div>
           <ul>
           <% @mechanic.services.each do |service| %>
-            <li><%= "#{service.service_name} for $#{service.service_price}" %></li>
+            <li><%= "#{service.service_name} for $#{service.service_price}" %>
+            <%= button_to "Delete Service", mechanic_service_path(@mechanic, service), {method: :delete} %>
+            </li>
           <% end %>
           </ul>
           <button class="large ui button">
