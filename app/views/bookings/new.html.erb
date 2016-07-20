@@ -1,29 +1,71 @@
-<h1>Request A Service Order</h1>
+<% content_for :header do -%>
+  <%# The precompile initalizer is found in `config/initializers/assets.rb` %>
+  <%= stylesheet_link_tag 'bookings' %>
+<% end %>
 
+
+<!-- Define which cyclist and which mechanic are participating in the form. -->
 <% @cyclist = Cyclist.find(params[:cyclist_id]) %>
 <% @mechanic = Mechanic.find(5) %>
 
-<%= form_for([:cyclist, @booking]) do |f| %>
-  <div>
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div>
-    <%= f.hidden_field :mechanic_id, value: @mechanic.id %><br>
-  </div>
-  <div>
-    <%= f.hidden_field :cyclist_id, value: @cyclist.id %><br>
-  </div>  
-  <div>
-    <%= f.hidden_field :status, value: "Pending" %><br>
-  </div>
-  <div>
-    <% for service in @mechanic.services do %>
-      <%= f.label "#{service.service_name} $(#{service.service_price})" %>
-      <%= check_box_tag "service_list[]", service.id %><br>
+<div class="ui main text container">
+  <div class="ui tall stacked segment">
+    <img class="mini ui image" src="/assets/pedalspace_colour_icon.png"></img>
+    <h2 class="ui center aligned icon header">
+      <i class="circular teal configure icon"></i>
+      <%= "Request a booking with #{@mechanic.first_name}" %>
+      </h2>
+      <h4 class="ui horizontal divider header slider-pad">
+        <i class="angle down teal icon"></i>
+        SELECT SERVICES
+      </h4>
+
+    <%= form_for([:cyclist, @booking]) do |f| %>
+
+      <!-- Hidden fields, not rendered in the form, are used upon submission -->
+       <div>
+        <%= f.hidden_field :mechanic_id, value: @mechanic.id %><br>
+      </div>
+      <div>
+        <%= f.hidden_field :cyclist_id, value: @cyclist.id %><br>
+      </div>  
+      <div>
+        <%= f.hidden_field :status, value: "Pending" %><br>
+      </div>
+
+
+    <div>
+      <% @mechanic.services.each do |service| %>
+      <div class="ui center aligned segment">
+        <div class="ui slider checkbox">
+          <%= check_box_tag "service_list[]", service.id %><br>
+          <%= f.label("Service: #{service.service_name} | Price: $#{service.service_price}") %>
+        </div><br>
+        </div>
+      <% end %>
+    </div>
+      
+    <div class="ui padded form">
+      <div class="field">
+        <br><%= f.label :description %><br>
+        <%= f.text_area :description, :placeholder => 'Please describe the service you are looking for...' %>
+      </div>
+    </div>
+
+      <div class="ui center aligned basic segment">
+        <div class="ui horizontal divider">
+          Okay, let's do it!
+        </div>
+        <div>
+          <%= button_tag( :class => "ui teal labeled icon button") do %>
+            Request a Booking <i class="add icon"></i>
+          <% end %>
+        </div>
+
+     </div>
+
+
     <% end %>
+
   </div>
-  <div>
-    <%= f.submit "Submit" %>
-  </div>
-<% end %>
+</div>

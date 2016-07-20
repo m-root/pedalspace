@@ -12,4 +12,7 @@ Rails.application.config.assets.precompile += %w( index.css )
 
 Rails.application.config.assets.precompile += %w( index.css )
 Rails.application.config.assets.precompile += %w( forms.css )
+Rails.application.config.assets.precompile += %w( cyclists.css )
+Rails.application.config.assets.precompile += %w( bookings.css )
+
 
