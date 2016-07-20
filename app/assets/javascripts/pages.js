@@ -38,6 +38,13 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                         'Error: Your browser doesn\'t support geolocation.');
 }
 
+// Test adding marker on Victoria
+var marker = new google.maps.Marker({
+  position: {lat: 48.4284, lng: -123.3656},
+  map: map,
+  title: 'Hello World!'
+});
+
 
 // PREVIOUS CODE
 
