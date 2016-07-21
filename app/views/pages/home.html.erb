@@ -62,7 +62,7 @@
         </div>
 
         <div class="content">
-          <a class="header"><%= mechanic.full_name %></a>
+          <a class="header"><%= link_to("#{mechanic.full_name}", mechanic_path(mechanic)) %></a>
           <div class="ui right floated animated fade button">
               <div class="visible content">
                 <%= "Get in touch with #{mechanic.first_name}" %>
