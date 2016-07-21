@@ -34,7 +34,7 @@ class ServicesController < ApplicationController
   end
 
   def destroy
-    @mechanic = Mechanic.find(session[:id])    
+    @mechanic = Mechanic.find(session[:id])
     @service = Service.find(params[:id])
 
     if @service.destroy

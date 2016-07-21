@@ -38,7 +38,7 @@ class CyclistsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @cyclist = Cyclist.find(session[:id])
     if @cyclist.destroy
       redirect_to root_path

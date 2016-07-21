@@ -46,7 +46,7 @@ class MechanicsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @mechanic = Mechanic.find(session[:id])
     if @mechanic.destroy
       redirect_to mechanics_path

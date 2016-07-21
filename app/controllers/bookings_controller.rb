@@ -34,7 +34,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  def delete
+  def destroy
     @booking = Booking.find(params[:id])
 
     if @booking.destroy
