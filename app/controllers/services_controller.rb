@@ -9,7 +9,7 @@ class ServicesController < ApplicationController
     @service = @mechanic.services.build(service_params)
 
     if @service.save
-      redirect_to "/mechanics/#{@mechanic.id}"
+      redirect_to mechanic_path(@mechanic)
     else
       render :new
     end
@@ -23,7 +23,7 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
 
     if @service.update_attributes(service_params)
-      redirect_to "/mechanics/#{@mechanic.id}"
+      redirect_to mechanic_path(@mechanic)
     else
       render :edit
     end
@@ -33,13 +33,14 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
   end
 
-  def delete
+  def destroy
+    @mechanic = Mechanic.find(session[:id])    
     @service = Service.find(params[:id])
 
     if @service.destroy
-      redirect_to "/mechanics/#{@mechanic.id}"
+      redirect_to mechanic_path(@mechanic)
     else
-      redirect_to "/mechanics/#{@mechanic.id}"
+      redirect_to mechanic_path(@mechanic)
     end
   end
 

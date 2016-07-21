@@ -6,10 +6,10 @@ class ReviewOfCyclistsController < ApplicationController
 
   def create
     @mechanic = Mechanic.find(session[:id])
-    @review = @mechanic.review_of_cyclist.build(review_params)
+    @review = @mechanic.review_of_cyclists.build(review_params)
 
     if @review.save
-      redirect_to cyclist_path
+      redirect_to mechanic_path(@mechanic)
     else
       render :new
     end
@@ -23,7 +23,7 @@ class ReviewOfCyclistsController < ApplicationController
     @review = ReviewOfCyclist.find(params[:id])
 
     if @review.update_attributes(review_params)
-      redirect_to cyclist_path
+      redirect_to mechanic_path(@mechanic)
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class ReviewOfCyclistsController < ApplicationController
   protected
 
   def review_params
-    params.require(:review_of_cyclist).permit(:cyclist_id, :rating, :service_expected, :price_expected, :comments)
+    params.require(:review_of_cyclist).permit(:cyclist_id, :rating, :did_pay, :comments)
   end
 
 end
