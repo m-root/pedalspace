@@ -18,8 +18,12 @@
   <div class="right menu">
     <div class="item">
       <div class="ui icon input">
-        <input type="text" placeholder="Search...">
-        <i class="search link icon"></i>
+        <%= form_tag(pages_home_path, method: :get, class: "ui icon input" ) do %>
+          <%= text_field_tag("service", "", {placeholder: "Search...", class: "prompt"}) %>
+          <%= submit_tag("", {style: "display: none;"}) do %>
+          <% end %>
+          <i class="search icon"></i>
+        <% end %>
       </div>
     </div>
     <% if (!user_signed_in?) %>
