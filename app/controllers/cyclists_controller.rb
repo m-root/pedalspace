@@ -34,7 +34,7 @@ class CyclistsController < ApplicationController
     @cyclist = Cyclist.find(session[:id])
   end
 
-  def delete
+  def destroy
     @cyclist = Cyclist.find(session[:id])
     if @cyclist.destroy
       redirect_to mechanics_path
