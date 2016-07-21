@@ -5,8 +5,8 @@
 
 
 <!-- Define which cyclist and which mechanic are participating in the form. -->
-<% @cyclist = Cyclist.find(params[:cyclist_id]) %>
-<% @mechanic = Mechanic.find(5) %>
+<% @cyclist = Cyclist.find(session[:id]) %>
+<% @mechanic = Mechanic.find(params[:mechanic_id]) %>
 
 <div class="ui main text container">
   <div class="ui tall stacked segment">
@@ -20,11 +20,11 @@
         SELECT SERVICES
       </h4>
 
-    <%= form_for([:cyclist, @booking]) do |f| %>
+    <%= form_for([:mechanic, @booking]) do |f| %>
 
       <!-- Hidden fields, not rendered in the form, are used upon submission -->
        <div>
-        <%= f.hidden_field :mechanic_id, value: @mechanic.id %><br>
+        <%= f.hidden_field :mechanic_id, value: :mechanic_id %><br>
       </div>
       <div>
         <%= f.hidden_field :cyclist_id, value: @cyclist.id %><br>
@@ -57,9 +57,10 @@
           Okay, let's do it!
         </div>
         <div>
-          <%= button_tag( :class => "ui teal labeled icon button") do %>
-            Request a Booking <i class="add icon"></i>
-          <% end %>
+          
+            <%= f.submit "Request Service Order" %> 
+            <i class="add icon"></i>
+   
         </div>
 
      </div>
