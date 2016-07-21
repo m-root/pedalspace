@@ -1,47 +1,38 @@
-<h1><%= "#{current_user.first_name} Service Orders" %></h1>
-
-<% @user = current_user %>
-<% @user.bookings.each do |booking| %>
-  <h3><%= @user.is_a?(Cyclist) ? "Service order for #{booking.mechanic.first_name} #{booking.mechanic.last_name}" : "Service order for #{booking.cyclist.first_name} #{booking.cyclist.last_name}"  %></h3>
-  <p><%= "Job Description: #{booking.description}" %></p>
-  <p><%= "Job Status: #{booking.status}" %></p>
-  <h4>Requested Services</h4>
-  <% booking.services.each do |service| %>
-    <p><%= "#{service.service_name} for $#{service.service_price}" %></p>
-  <% end %>
-  <p><strong><%= "Total Order Cost: $#{booking.total_order_cost}" %></strong></p>
-
-  <% case booking.status %>
-  <% when "Pending" %>
-    <% if @user.is_a?(Mechanic) %>
-      <%= button_tag "Accept Request", id: "Accept" %>
-    <% end %>
-    <% when "Active" %>
-    <% if @user.is_a?(Mechanic) %>
-      <%= button_tag "Service Order Complete", id: "Complete" %>
-    <% end %>
-    <% when "Complete" %>
-    <% if @user.is_a?(Cyclist) %>
-      <%= button_tag "Picked Up Bike", id: "Picked" %>
-    <% end %>  
-  <% end %>
-
-<% end %>
-
-
 <div class="ui container">
-	<div class="ui very padded raiseda segment">
+	<h1><%= "#{current_user.first_name} - Service History" %></h1>
+		<div class="ui very padded raised segment">
+		<img class="ui right floated mini image" src="/assets/pedalspace_colour_icon.png"><img>
+		<% @user = current_user %>
+		<% @user.bookings.each do |booking| %>
+		 <br>
+		  <a class="ui teal tag large label"><%= @user.is_a?(Cyclist) ? "Service order for #{booking.mechanic.first_name} #{booking.mechanic.last_name}" : "Service order for #{booking.cyclist.first_name} #{booking.cyclist.last_name}"  %></a>
+		  <br>
+		  <br>
+		  <p><%= "Job Description: #{booking.description}" %></p>
+		  <p><%= "Job Status: #{booking.status}" %></p>
+		  <h4>Requested Services</h4>
+		  <% booking.services.each do |service| %>
+		    <p><%= "#{service.service_name} for $#{service.service_price}" %></p>
+		  <% end %>
+		  <p><strong><%= "Total Order Cost: $#{booking.total_order_cost}" %></strong></p>
+		  <br>
+		  <div class="ui divider"></div>
 
-		<div class="ui card">
-		  <div class="content">
-		    <div class="header">Cute Dog</div>
-		    <div class="meta">2 days ago</div>
-		    <div class="description">
-		      <p>Cute dogs come in a variety of shapes and sizes. Some cute dogs are cute for their adorable faces, others for their tiny stature, and even others for their massive size.</p>
-		      <p>Many people also have their own barometers for what makes a cute dog.</p>
-		    </div>
-		  </div>
-		</div>
+		  <% case booking.status %>
+		  <% when "Pending" %>
+		    <% if @user.is_a?(Mechanic) %>
+		      <%= button_tag "Accept Request", id: "Accept" %>
+		    <% end %>
+		    <% when "Active" %>
+		    <% if @user.is_a?(Mechanic) %>
+		      <%= button_tag "Service Order Complete", id: "Complete" %>
+		    <% end %>
+		    <% when "Complete" %>
+		    <% if @user.is_a?(Cyclist) %>
+		      <%= button_tag "Picked Up Bike", id: "Picked" %>
+		    <% end %>  
+		  <% end %>
 
+		<% end %>
 	</div>
 </div>
