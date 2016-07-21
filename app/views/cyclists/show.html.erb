@@ -2,7 +2,7 @@
   
   <div class="ui stackable two column very relaxed grid container" style="position:relative;">
     <div class="column">
-      <div class="ui segment">
+
         
         <!-- <div class="ui link cards"> -->
           <div class="ui card">
@@ -26,17 +26,24 @@
               <span class="right floated">
                 <%= "Service Orders: #{@cyclist.bookings.count}" %>
               </span>
+              <span class="left floated">
+                <%= "Average Rating: #{@cyclist.avg_rating}/10" %>
+              </span>
             </div>
           <!-- </div> -->
+        
+        <div>
+        <% if current_user.id == @cyclist.id %>
+          <button class="huge ui button">
+            <%= button_to "My Service Orders", cyclist_bookings_path(@cyclist), {method: :get} %>
+          </button>
+        <% end %>
         </div>
-
-
-
       </div>
     </div>
     <div class="ui divider vertical"></div>
     <div class="column">
-
+    
           <h2 class="ui left floated header"><%= "Reviews about #{@cyclist.first_name}" %></h2>
           <% @cyclist.review_of_cyclists.each do |review| %>
           <div class="ui clearing divider"></div>
