@@ -10,6 +10,13 @@ class Mechanic < User
   validates :city, presence: true
   validates :postal_code, format: { with: /\A[A-Z][0-9][A-Z]\s?[0-9][A-Z][0-9]\Z/ }
 
+  geocoded_by :full_street_address
+  after_validation :geocode
+
+  def full_street_address
+    "#{self.street_address} #{self.city} #{self.postal_code}"
+  end
+
   def self.search(search_params)
     with_city(search_params[:city])
       .with_service(search_params[:service])
@@ -20,6 +27,8 @@ class Mechanic < User
   scope :with_city, proc { |city|
     if city.present?
       where("city ILIKE ?", "%#{city}%").distinct
+      # GEOCODED VERSION:
+      # .near(city, [[search-radius]], order: :distance)
     end
   }
 
