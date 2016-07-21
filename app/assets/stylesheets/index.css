@@ -73,6 +73,10 @@
     margin: 3em 0em;
   }
 
+  .padded {
+    padding: 20px;
+  }
+
   .quote.stripe.segment {
     padding: 0em;
   }
