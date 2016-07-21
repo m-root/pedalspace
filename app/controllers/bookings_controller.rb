@@ -21,10 +21,11 @@ class BookingsController < ApplicationController
   end
 
   def update
+    @cyclist = Cyclist.find(session[:id])  
     @booking = Booking.find(params[:id])
 
     if @booking.update_attributes(booking_params)
-      redirect_to root_path
+      redirect_to cyclist_bookings_path
     else
       render :edit
     end
