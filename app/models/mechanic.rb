@@ -18,17 +18,23 @@ class Mechanic < User
   end
 
   def self.search(search_params)
-    with_city(search_params[:city])
+    with_location(search_params[:location])
+      .with_city(search_params[:city])
       .with_service(search_params[:service])
       .with_price(search_params[:price])
   end
 
   # Scopes for searching
+  scope :with_location, proc { |location|
+    if location.present?
+      # Can add additional arguments: search radius (miles), order: :distance
+      near(location)
+    end
+  }
+
   scope :with_city, proc { |city|
     if city.present?
       where("city ILIKE ?", "%#{city}%").distinct
-      # GEOCODED VERSION:
-      # .near(city, [[search-radius]], order: :distance)
     end
   }
 

@@ -19,7 +19,6 @@
  <!-- Start of the GoogleMaps section -->
 
   <div class="ui raised padded container segment">
-  <h3></h3>
   <div id="map"></div>
 
   <script async defer
@@ -30,10 +29,16 @@
 
 	<div>
 		<div id="search-bar" class="ui search">
-		  <div class="ui icon input">
-		    <input class="prompt" type="text" placeholder="Search nearby ...">
-		    <i class="search icon"></i>
-		  </div>
+
+      <%= form_tag(pages_home_path, method: :get, class: "ui icon input" ) do %>
+        <%= text_field_tag("service", "", {placeholder: "Search nearby...", class: "prompt"}) %>
+        <!-- Location field commented out b/c currently not working -->
+        <!-- <%= hidden_field_tag("location", request.safe_location) %> -->
+        <%= submit_tag("", {style: "display: none;"}) do %>
+        <% end %>
+        <i class="search icon"></i>
+      <% end %>
+
 		  <div class="results"></div>
 		</div>
 	</div>
@@ -57,7 +62,7 @@
         </div>
 
         <div class="content">
-          <a class="header"><%= mechanic.full_name %></a>
+          <a class="header"><%= link_to("#{mechanic.full_name}", mechanic_path(mechanic)) %></a>
           <div class="ui right floated animated fade button">
               <div class="visible content">
                 <%= "Get in touch with #{mechanic.first_name}" %>

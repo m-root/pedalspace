@@ -40,7 +40,10 @@ class MechanicsController < ApplicationController
 
   def show
     @mechanic = Mechanic.find(params[:id])
-
+    if !current_user.present?
+      flash[:notice] = "You must log in to view profiles"
+      redirect_to pages_home_path
+    end
     if current_user.is_a?(Mechanic) && current_user.id != @mechanic.id
       redirect_to mechanic_path(current_user)
     end
