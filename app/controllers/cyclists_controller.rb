@@ -10,7 +10,7 @@ class CyclistsController < ApplicationController
 
     if @cyclist.save
       session[:id] = @cyclist.id
-      redirect_to cyclist_path
+      redirect_to cyclist_path(@cyclist)
     else
       render :new
     end
@@ -24,22 +24,26 @@ class CyclistsController < ApplicationController
     @cyclist = Cyclist.find(session[:id])
 
     if @cyclist.update_attributes(cyclist_params)
-      redirect_to cyclist_path
+      redirect_to cyclist_path(@cyclist)
     else
       render :edit
     end
   end
 
   def show
-    @cyclist = Cyclist.find(session[:id])
+    @cyclist = Cyclist.find(params[:id])
+
+    if current_user.is_a?(Cyclist) && current_user.id != @cyclist.id
+      redirect_to cyclist_path(current_user)
+    end
   end
 
   def delete
     @cyclist = Cyclist.find(session[:id])
     if @cyclist.destroy
-      redirect_to mechanics_path
+      redirect_to root_path
     else
-      redirect_to cyclist_path
+      redirect_to cyclist_path(@cyclist)
     end
   end
 

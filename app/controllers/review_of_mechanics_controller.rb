@@ -6,10 +6,10 @@ class ReviewOfMechanicsController < ApplicationController
 
   def create
     @cyclist = Cyclist.find(session[:id])
-    @review = @cyclist.review_of_mechanic.build(review_params)
+    @review = @cyclist.review_of_mechanics.build(review_params)
 
     if @review.save
-      redirect_to mechanic_path
+      redirect_to cyclist_path(@cyclist)
     else
       render :new
     end
@@ -23,7 +23,7 @@ class ReviewOfMechanicsController < ApplicationController
     @review = ReviewOfMechanic.find(params[:id])
 
     if @review.update_attributes(review_params)
-      redirect_to mechanic_path
+      redirect_to cyclist_path(@cyclist)
     else
       render :edit
     end
