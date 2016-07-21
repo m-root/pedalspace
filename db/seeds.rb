@@ -37,12 +37,12 @@ Service.create!(mechanic_id: 12, service_name: "Full fitting", service_price: 40
 Service.create!(mechanic_id: 12, service_name: "Clipless pedals", service_price: 15)
 
 
-Booking.create!(cyclist_id: 1, mechanic_id: 5, description: @desc1, status: "active")
-Booking.create!(cyclist_id: 2, mechanic_id: 6, description: @desc2, status: "active")
-Booking.create!(cyclist_id: 3, mechanic_id: 5, description: @desc3, status: "active")
-Booking.create!(cyclist_id: 4, mechanic_id: 6, description: @desc4, status: "active")
-Booking.create!(cyclist_id: 3, mechanic_id: 5, description: @desc5, status: "active")
-Booking.create!(cyclist_id: 2, mechanic_id: 6, description: @desc6, status: "active")
+Booking.create!(cyclist_id: 1, mechanic_id: 5, description: @desc1, status: "Pending")
+Booking.create!(cyclist_id: 2, mechanic_id: 6, description: @desc2, status: "Pending")
+Booking.create!(cyclist_id: 3, mechanic_id: 5, description: @desc3, status: "Active")
+Booking.create!(cyclist_id: 4, mechanic_id: 6, description: @desc4, status: "Active")
+Booking.create!(cyclist_id: 3, mechanic_id: 5, description: @desc5, status: "Complete")
+Booking.create!(cyclist_id: 2, mechanic_id: 6, description: @desc6, status: "Complete")
 
 RequestedService.create!(booking_id: 1, service_id: 1)
 RequestedService.create!(booking_id: 1, service_id: 2)
