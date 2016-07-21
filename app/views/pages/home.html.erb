@@ -31,11 +31,12 @@
 		<div id="search-bar" class="ui search">
 
       <%= form_tag(pages_home_path, method: :get, class: "ui icon input" ) do %>
-        <%= text_field_tag("service", "Search nearby...", class: "prompt") %>
-        <%= hidden_field_tag("location", request.safe_location) %>
-        <%= button_tag do %>
-          <i class="search icon"></i>
+        <%= text_field_tag("service", "", {placeholder: "Search nearby...", class: "prompt"}) %>
+        <!-- Location field commented out b/c currently not working -->
+        <!-- <%= hidden_field_tag("location", request.safe_location) %> -->
+        <%= submit_tag("", {style: "display: none;"}) do %>
         <% end %>
+        <i class="search icon"></i>
       <% end %>
 
 		  <div class="results"></div>
