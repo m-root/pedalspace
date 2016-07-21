@@ -10,6 +10,18 @@
 
 @bio6 = "Ea sint facete nostrud mea. Purto labores vis at, nam scaevola singulis delicatissimi ea. Unum vulputate vituperatoribus ne vix. Etiam viderer insolens ne eos."
 
+@bio7 = "Lorem ipsum hors delai hampsten nys knockteberg shut up legs, spartacus liquigas tilford vaughters tete de la course? Omloop het volk colnago, bruyneel spartacus bianchi longo kluisberg dwars door vlaanderen."
+
+@bio8 = "Kolobnev in arrivere supplesse. Arrivere nyvelocity mmmaiko, chicane snob pau randonneur wevelgem van steenbergen."
+
+@bio9 = "Parcours maillot jaune indurain. Tilford ronde van belgie paris petacchi, rouleur grimpeur bruges this greek text is produced by rouleur derby, almost certainly the best fantasy cycling game in the world van garderen gruppetto, molteni fred. Tourmalet omnium soigneur freire hell of the north, bettini valkenberg thor smash barthelemy choley pays de loire shut up legs."
+
+@bio10 = "The flamme rouge martens an trousselier rouleur derby is for lovers."
+
+@bio11 = "Virenque milan-san remo bidon ventoux suitcase of courage. Rouleur derby bruges, pedal la fleche wallonne van garderen ventoux planket what would jens do."
+
+@bio12 = "Thor smash driedaagse de panne-koksijde colnago bonk. Cat among the pigeons bonk gilbert, belleville krabbe commissaire riis martens nys, wevelgem up schleck. Vande velde dwars door vlaanderen taaienberg anquetil."
+
 @desc1 = "Please build a wheel and assemble my bike.  Sometime next week would be good."
 @desc2 = "I'd like a tune up.  Please tighten my brakelines, too.  No rush."
 @desc3 = "Need emergency wheel build.  I'm competing two days from now.  Urgent!"
@@ -39,5 +51,3 @@
 @revc4 = "Cyclist didn't pay the requested amount."
 @revc5 = "Respectful and easy to deal with."
 @revc6 = "Paid promptly but kind of a dick."
-
-
