@@ -27,16 +27,27 @@
               <span class="right floated">
                 <%= "Service Orders: #{@mechanic.bookings.count}" %>
               </span>
+              <span class="left floated">
+                <%= "Average Rating: #{@mechanic.avg_rating}/10" %>
+              </span>
             </div>
+
           <!-- </div> -->
         </div>
+        <div>
         <% if current_user.is_a?(Cyclist) %>
           <button class="huge ui button">
-              Request a Service Order
+            <%= button_to "Request A Service Order", new_mechanic_booking_path(@mechanic), {method: :get} %>
           </button>
         <% end %>
-
-
+        </div>
+        <div>
+        <% if current_user.id == @mechanic.id %>
+          <button class="huge ui button">
+            <%= button_to "My Service Orders", mechanic_bookings_path(@mechanic), {method: :get} %>
+          </button>
+        <% end %>
+        </div>
       </div>
     </div>
     <div class="ui divider vertical"></div>

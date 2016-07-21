@@ -21,6 +21,7 @@ class BookingsController < ApplicationController
   end
 
   def update
+    @cyclist = Cyclist.find(session[:id])  
     @booking = Booking.find(params[:id])
 
     if @booking.update_attributes(booking_params)

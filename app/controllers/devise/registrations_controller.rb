@@ -8,12 +8,9 @@ class Devise::RegistrationsController < DeviseController
     @user = User.new(user_params)
     @user.avg_rating = 0
 
-    if @user.save && @user.is_a?(Cyclist)
+    if @user.save
       session[:id] = @user.id
-      redirect_to "/cyclists/#{@user.id}"
-    elsif @user.save && @user.is_a?(Mechanic)
-      session[:id] = @user.id
-      redirect_to "/mechanics/#{@user.id}"     
+      redirect_to new_user_session_path, notice: "Account created.  Please login to continue."
     else
       render :new
     end
