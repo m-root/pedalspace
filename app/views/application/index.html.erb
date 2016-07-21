@@ -112,106 +112,119 @@
 		      <h1 class="ui inverted header">
 		        Need your bicycle fixed?
 		      </h1>
-		      <h2>Look up a mechanic near you.</h2>
-		      		<div class="container fluid findbg rounded">
-		      			<form class="ui form rounded">
-		      				<div class="field">
-		      					<div class="fields">
-		      						<div class="eleven wide field">
-		      							<div class="ui search location">
-		      								<div class="ui left icon input">
-		      									<i class="inverted circular teal world icon"></i>
-		      									<input class="prompt" type="text" name="location" placeholder="Enter your city...">
-		      								</div>
-		      							</div>
-		      						</div>
-			      						<div class="three wide field">
-			      						<div class="ui selection dropdown">
-			      						<div class="default text">Service Needed</div>
-			      						<i class="dropdown icon"></i>   <!--  I want this same dropdown to be < % yield % > from the seach menu as well -->
-		      						<input type="hidden" name="ride">
-		      						  <select class="ui search dropdown">
-										  <option value="">State</option>
-										  <option value="AL">Alabama</option>
-										  <option value="AK">Alaska</option>
-										  <option value="AZ">Arizona</option>
-										  <option value="AR">Arkansas</option>
-										  <option value="CA">California</option>
-									   </select>
-		      						  </div>
-		      					   </div>
-		      					 </div>
-		      			   </div>
-		      			   <div class="field">
-		      			   		<button class= "ui submit teal container animated fade button" tabindex="0">
-		      			   			<div class="visible content"> Find Nearby</div>
-		      			   			<div class="hidden content"> Okay, let's go!&nbsp;<i class="bicycle icon"></i></div>
-		      			   		</button>
-		      			   </div>
-		      			</form>
-		      	   </div>
-		      	</div>
-		    </div>
-		 </div>
-
-
-  <div class="ui vertical stripe quote segment">
-    <div class="ui equal width stackable internally celled grid">
-      <div class="center aligned row">
-        <div class="column">
-          <img src="/assets/desktop.png" class="ui medium centered padded image"><br>
-          <a class="ui teal massive tag label"><i class="search icon"></i> Create a profile</a>
+                <h2>Look up a mechanic near you.</h2>
+                <div class="container fluid findbg rounded">
+                    <form class="ui form rounded">
+                        <div class="field">
+                            <div class="fields">
+                                <div class="eleven wide field">
+                                    <div class="ui search location">
+                                        <div class="ui left icon input">
+                                            <i class="inverted circular teal world icon"></i>
+                                            <input class="prompt" type="text" name="location" placeholder="Enter your city...">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="three wide field">
+                                    <div class="ui selection dropdown">
+                                        <div class="default text">Service Needed</div>
+                                        <i class="dropdown icon"></i>
+                                        <!--  I want this same dropdown to be < % yield % > from the seach menu as well -->
+                                        <input type="hidden" name="ride">
+                                        <select class="ui search dropdown">
+                                            <option value="">State</option>
+                                            <option value="AL">Alabama</option>
+                                            <option value="AK">Alaska</option>
+                                            <option value="AZ">Arizona</option>
+                                            <option value="AR">Arkansas</option>
+                                            <option value="CA">California</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <button class="ui submit teal container animated fade button" tabindex="0">
+                                <div class="visible content"> Find Nearby</div>
+                                <div class="hidden content"> Okay, let's go!&nbsp;<i class="bicycle icon"></i></div>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="column">
-          <img src="/assets/search_map.png" class="ui medium centered padded image"><br>
-          <a class="ui teal massive label"><i class="search icon"></i>Search Your Area</a>
-        </div>
-        <div class="column">
-        	<br>
-          <img src="/assets/work_icon.png" class="ui small centered image"><br>
-          <br>
-          <a class="ui teal massive ribbon label"><i class="search icon"></i>  Book a Mechanic</a>
-        </div>
-        </div>
-      </div>
     </div>
-  </div>
-
-
-
- <div class="ui vertical stripe segment">
-    <div class="ui middle aligned stackable grid container">
-      <div class="row">
-        <div class="eight wide column">
-          <h3 class="ui header">Request a Booking</h3>
-          <p>You can request a booking for your bicycle maintenance - using the Services menu offere</p>
-          <h3 class="ui header">Confirm a Booking </h3>
-          <p></p>
+    <div class="ui vertical stripe quote segment">
+        <div class="ui equal width stackable internally celled grid">
+            <div class="center aligned row">
+                <div class="column">
+                	<p> 1. Join the Pedalspace Community</p>
+                    <img src="/assets/desktop.png" class="ui medium centered padded image">
+                    <br>
+                    <a class="ui teal massive tag label"><i class="search icon"></i> Create a profile</a>
+                </div>
+                <div class="column">
+                	<p> 2. Find a Mechanic in your Area</p>
+                    <img src="/assets/search_map.png" class="ui medium centered padded image">
+                    <br>
+                    <a class="ui teal massive label"><i class="search icon"></i>Search Your Area</a>
+                </div>
+                <div class="column">
+                	<p> 3. Make a Service Request for your Repairs!</p>
+                    <br>
+                    <img src="/assets/work_icon.png" class="ui small centered image">
+                    <br>
+                    <br>
+                    <a class="ui teal massive ribbon label"><i class="search icon"></i>  Book a Mechanic</a>
+                </div>
+            </div>
         </div>
-        <div class="six wide right floated column">
-          <img src="/assets/booking_form_image.png" class="ui medium image">
-        </div>
-      </div>
-      <div class="row">
-        <div class="center aligned column">
-          <a class="ui huge button">Check Them Out</a>
-        </div>
-      </div>
     </div>
-  </div>
+    </div>
+    <div class="ui vertical stripe segment">
+        <div class="ui middle aligned stackable grid container">
+            <div class="row">
+                <div class="eight wide column">
+                    <h3 class="ui header">Request a Booking</h3>
+                    <p> So, you found a mechanic in your area?</p>
 
-
-  <div class="ui vertical stripe segment">
-    <div class="ui text container">
-      <h3 class="ui header">Breaking The Grid, Grabs Your Attention</h3>
-      <p>Instead of focusing on content creation and hard work, we have learned how to master the art of doing nothing by providing massive amounts of whitespace and generic content that can seem massive, monolithic and worth your attention.</p>
-      <a class="ui large button">Read More</a>
-      <h4 class="ui horizontal header divider">
-        <a href="#">Case Studies</a>
+                    <p>You can request a booking for your bicycle maintenance directly through the  
+                    	<a class="ui image label">
+						  <img src="http://semantic-ui.com/examples/assets/images/wireframe/image.png">
+						  Mechanic</a>
+						  <br>
+						  <br> Be sure to select from the list of services offered by that Mechanic</p>
+                    <h3 class="ui header">Confirm a Booking </h3>
+                    <p> To confirm a booking, simply recieve a service request from the customer and contact them over chat! Once you have sorted out the work needing to be completed - click  <a class="ui image label">
+						  <img src="http://semantic-ui.com/examples/assets/images/wireframe/image.png">
+						  Confirm Booking</a> 
+                    
+                    <br>
+                    <br>During a service request, You can make comments, and update the customer as to the status of their booking.</p>
+                </div>
+                <div class="six wide right floated column">
+                    <img src="/assets/booking_form_image.png" class="ui medium image">
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="center aligned column">
+                    <a href='/users/sign_up' class="ui huge button">Sign Up to Get Started</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui vertical stripe segment">
+        <div class="ui text container">
+            <h3 class="ui header">Why get your fix through the Pedalspace?</h3>
+            <p>Pedalspace is a community platform that believes in connecting like-minded individuals with affordable service maintenance for their beloved bicycle. The opportunity to find peer-to-peer pricing on service allows everyone greater access to use of bicycles as a means of transportation.</p>
+            <a class="ui large button">Get Service</a>
+            <h4 class="ui horizontal header divider">
+        <a href="#">Got some skills?</a>
       </h4>
-      <h3 class="ui header">Did We Tell You About Our Bananas?</h3>
-      <p>Yes I know you probably disregarded the earlier boasts as non-sequitor filler content, but its really true. It took years of gene splicing and combinatory DNA research, but our bananas can really dance.</p>
-      <a class="ui large button">I'm Still Quite Interested</a>
+      <h3 class="ui header">Why Become a Pedalspace Mechanic?</h3>
+      <p>Do you have a garage full of tools, a love of bicycles and some handy experience? Do what you Love, and Love what you do. Creating your own Pedalspace as a mechanic is a great opportunity to set your own prices, for the work you know best. Better yet - your customers can compensate you any way that works best! A win win for all. </p>
+      <a class="ui large button">Become a Mechanic</a>
     </div>
   </div>
 
@@ -222,24 +235,24 @@
         <div class="three wide column">
           <h4 class="ui inverted header">About</h4>
           <div class="ui inverted link list">
-            <a href="#" class="item">Sitemap</a>
-            <a href="#" class="item">Contact Us</a>
-            <a href="#" class="item">Religious Ceremonies</a>
-            <a href="#" class="item">Gazebo Plans</a>
+            <a href="#" class="item"><i class="users icon"></i> Our Team</a>
+            <a href="#" class="item"><i class="github icon"></i> Contribute to Pedalspace  </a>
+            <a href="#" class="item"><i class="chevron right icon"></i> Lighthouse Labs</a>
+            <a href="#" class="item"><i class="cubes icon"></i>   Fort Tectoria</a>
           </div>
         </div>
         <div class="three wide column">
           <h4 class="ui inverted header">Services</h4>
           <div class="ui inverted link list">
-            <a href="#" class="item">Banana Pre-Order</a>
-            <a href="#" class="item">DNA FAQ</a>
-            <a href="#" class="item">How To Access</a>
-            <a href="#" class="item">Favorite X-Men</a>
+            <a href="#" class="item">What's to Come</a>
+            <a href="#" class="item">Pedalspace FAQ</a>
+            <a href="#" class="item">Get Involved</a>
+            <a href="#" class="item">More Info</a>
           </div>
         </div>
         <div class="seven wide column">
-          <h4 class="ui inverted header">Footer Header</h4>
-          <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+          <h4 class="ui inverted header">The Pedalspace Disclaimer</h4>
+          <p>Pedalspace does not take responsibility for liability of stolen or damaged property, shitty code done on short timeline, or misdirection on the architecture of this project.</p>
         </div>
       </div>
     </div>
