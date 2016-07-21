@@ -1,9 +1,8 @@
-<h1>Your Service Orders</h1>
+<h1><%= "#{current_user.first_name} Service Orders" %></h1>
 
-<% @user = User.find(session[:id]) %>
+<% @user = current_user %>
 <% @user.bookings.each do |booking| %>
-  <h3>Service Order</h3>
-  <p><%= "Mechanic: #{booking.mechanic.first_name} #{booking.mechanic.last_name}" %></p>
+  <h3><%= @user.is_a?(Cyclist) ? "Service order for #{booking.mechanic.first_name} #{booking.mechanic.last_name}" : "Service order for #{booking.cyclist.first_name} #{booking.cyclist.last_name}"  %></h3>
   <p><%= "Job Description: #{booking.description}" %></p>
   <p><%= "Job Status: #{booking.status}" %></p>
   <h4>Requested Services</h4>
@@ -11,4 +10,20 @@
     <p><%= "#{service.service_name} for $#{service.service_price}" %></p>
   <% end %>
   <p><strong><%= "Total Order Cost: $#{booking.total_order_cost}" %></strong></p>
+
+  <% case booking.status %>
+  <% when "Pending" %>
+    <% if @user.is_a?(Mechanic) %>
+      <%= button_tag "Accept Request", id: "Accept" %>
+    <% end %>
+    <% when "Active" %>
+    <% if @user.is_a?(Mechanic) %>
+      <%= button_tag "Service Order Complete", id: "Complete" %>
+    <% end %>
+    <% when "Complete" %>
+    <% if @user.is_a?(Cyclist) %>
+      <%= button_tag "Picked Up Bike", id: "Picked" %>
+    <% end %>  
+  <% end %>
+
 <% end %>
