@@ -21,18 +21,20 @@
             </div>
             <div class="extra content">
               <span class="right floated">
-                <%= "Joined #{@mechanic.created_at}" %>
-              </span>
-              <span>
                 <i class="user icon"></i>
+                <%= "Joined Pedalspace on #{@mechanic.created_at.strftime("%m/%d/%Y")}" %>
+              </span>
+              <span class="right floated">
                 <%= "Service Orders: #{@mechanic.bookings.count}" %>
               </span>
             </div>
           <!-- </div> -->
         </div>
-        <button class="massive ui button">
-            Request a Service Order
-        </button>
+        <% if current_user.is_a?(Cyclist) %>
+          <button class="huge ui button">
+              Request a Service Order
+          </button>
+        <% end %>
 
 
       </div>
@@ -44,51 +46,51 @@
           <div class="ui clearing divider"></div>
           <ul>
           <% @mechanic.services.each do |service| %>
-            <li><%= "#{service.service_name} for $#{service.service_price}" %>
-            <%= button_to "Delete Service", mechanic_service_path(@mechanic, service), {method: :delete} %>
+            <li>
+              <%= "#{service.service_name} for $#{service.service_price}" %>
+              <% if @mechanic.id == current_user.id %>
+                <%= button_to "Delete Service", mechanic_service_path(@mechanic, service), {method: :delete} %>
+              <% end %>
             </li>
           <% end %>
           </ul>
-          <button class="large ui button">
-            <%= button_to "Add A Service", new_mechanic_service_path(@mechanic), {method: :get} %>
-          </button>
-
+          <% if @mechanic.id == current_user.id %>  
+            <button class="large ui button">
+              <%= button_to "Add A Service", new_mechanic_service_path(@mechanic), {method: :get} %>
+            </button>
+          <% end %>
         </div class="ui segment">
 
 
-          <h2 class="ui left floated header">Reviews</h2>
+          <h2 class="ui left floated header"><%= "Reviews about #{@mechanic.first_name}" %></h2>
+          <% @mechanic.review_of_mechanics.each do |review| %>
           <div class="ui clearing divider"></div>
           <div class="ui card">
             <div class="content">
-              <div class="header">Thanks for the help</div>
-              <div class="meta">
-                <span class="right floated time">2 days ago</span>
-                <span class="category">
-                  <div class="ui mini star rating" data-max-rating="10" data-rating="4"></div>
-                </span>
-              </div>
               <div class="description">
                 <div class="right floated author">
                 <img class="ui avatar image" src="http://semantic-ui.com/examples/assets/images/wireframe/image.png"> 
-                <%= "#{@mechanic.review_of_mechanics.first.cyclist.first_name}" %>
                 </div>
-                <p><%= "#{@mechanic.review_of_mechanics.first.comments}" %></p>
-                <p><%= "Rating: #{@mechanic.review_of_mechanics.first.rating}" %></p>
+                <p><%= "#{review.comments}" %></p>
+                <p><%= "Rating: #{review.rating}" %></p>
+                <p><%= "Written by: #{review.cyclist.first_name} #{review.cyclist.last_name}" %></p> 
+          
               </div>
             </div>
             <div class="extra content">
               <div class="left floated author">
                 <i class="configure icon"></i>
-                <%= "Provided expected service: #{@mechanic.review_of_mechanics.first.service_expected}" %>
+                <%= review.service_expected ? "Service was as expected." : "Service was inadequate." %>
               </div>
             </div>
             <div class="extra content">
               <div class="left floated author">
                 <i class="dollar icon"></i>
-                <%= "Charged expected price: #{@mechanic.review_of_mechanics.first.price_expected}" %>
+                <%= review.price_expected ? "Price was as expected." : "Price was misrepresented." %>
               </div>
             </div>
           </div>
-
+        <% end %>
     </div>
   </div>
+  
