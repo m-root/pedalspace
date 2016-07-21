@@ -20,11 +20,10 @@
         SELECT SERVICES
       </h4>
 
-    <%= form_for([:mechanic, @booking]) do |f| %>
-
+    <%= form_for(@booking, { url: "/mechanics/#{@mechanic.id}/bookings", method: :post }) do |f| %>
       <!-- Hidden fields, not rendered in the form, are used upon submission -->
        <div>
-        <%= f.hidden_field :mechanic_id, value: :mechanic_id %><br>
+        <%= f.hidden_field :mechanic_id, value: @mechanic.id %><br>
       </div>
       <div>
         <%= f.hidden_field :cyclist_id, value: @cyclist.id %><br>

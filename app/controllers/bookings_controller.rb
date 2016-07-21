@@ -6,11 +6,11 @@ class BookingsController < ApplicationController
 
   def create
     @cyclist = Cyclist.find(session[:id])
-    @booking = @cyclist.bookings.build(booking_params)
+    @booking = @cyclist.bookings.create(booking_params)
 
     if @booking.save
       create_services(params[:service_list])
-      redirect_to cyclist_bookings_path
+      redirect_to "/cyclists/#{@cyclist.id}"
     else
       render :new
     end
@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
 
     if @booking.update_attributes(booking_params)
-      redirect_to cyclist_bookings_path
+      redirect_to cyclist_path(@cyclist)
     else
       render :edit
     end
@@ -48,7 +48,7 @@ class BookingsController < ApplicationController
   protected
 
   def booking_params
-    params.require(:booking).permit(:mechanic_id, :description, :status, :service_list)
+    params.require(:booking).permit(:cyclist_id, :mechanic_id, :description, :status, :service_list)
   end
 
   def create_services(service_list)
