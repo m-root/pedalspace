@@ -1,27 +1,26 @@
-<%= form_for([:mechanic, @review]) do |f| %>
+<% @mechanic = Mechanic.find(params[:mechanic_id]) %>
+<%= form_for(@review, { url: "/mechanics/#{@mechanic.id}/review_of_mechanics", method: :post }) do |f| %>
   <div>
-    <%= f.hidden_field :mechanic_id, value: params[:mechanic_id] %>
+    <%= f.hidden_field :mechanic_id, value: @mechanic.id %>
   </div>
   <h2 class="ui header"> How was your experience? </h2>
   <div>
       <%= f.label :rating %><br><br>
-        <div class="ui huge star rating" data-max-rating="10">
-          <%= f.number_field :rating%>
-        </div>
+      <%= f.number_field :rating%>
   </div>
   <div>
   <br>
   <br>
   <div class="ui slider checkbox">
   <!-- Checkbox tag must go ABOVE here for this to work! -->
-    <%= check_box_tag :service_expected %>
+    <%= f.check_box :service_expected %>
     <%= f.label :service_expected %><br>
   </div>
   <br>
   <br>
   <div class="ui slider checkbox">
     <!-- Checkbox tag must go ABOVE here for this to work! -->
-    <%= check_box_tag :price_expected %>
+    <%= f.check_box :price_expected %>
     <%= f.label :price_expected %><br>
   </div>
   </div>
