@@ -42,7 +42,11 @@
         <%= link_to "Log out", destroy_user_session_path, :class =>'item', :method => :delete %>
       </a>
       <a>
-        <%= link_to "Edit Profile", edit_user_registration_path, :class =>'item' %>
+        <% if current_user.is_a?(Mechanic) %>
+          <%= link_to "Edit Profile", edit_mechanic_path(current_user.id), :class =>'item' %>
+        <% elsif current_user.is_a?(Cyclist) %>
+          <%= link_to "Edit Profile", edit_cyclist_path(current_user.id), :class =>'item' %>
+        <% end %>
       </a>
     <% end %>
   </div>
