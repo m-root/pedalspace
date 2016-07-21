@@ -39,7 +39,11 @@ class MechanicsController < ApplicationController
   end
 
   def show
-    @mechanic = Mechanic.find(session[:id])
+    @mechanic = Mechanic.find(params[:id])
+
+    if current_user.is_a?(Mechanic) && current_user.id != @mechanic.id
+      redirect_to mechanic_path(current_user)
+    end
   end
 
   def delete
