@@ -16,7 +16,7 @@
 		  <% end %>
 		  <p><strong><%= "Total Order Cost: $#{booking.total_order_cost}" %></strong></p>
 		  <br>
-		  <div class="ui divider"></div>
+
 
 		  <% case booking.status %>
 		  <% when "Pending" %>
@@ -32,7 +32,8 @@
 		      <%= button_tag "Picked Up Bike", id: "Picked" %>
 		    <% end %>  
 		  <% end %>
-
+		  <br>
+		  <div class="ui divider"></div>
 		<% end %>
 	</div>
 </div>
