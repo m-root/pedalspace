@@ -1,6 +1,8 @@
-<h1>ReviewOfCyclists#new</h1>
-<p>Find me in app/views/review_of_cyclists/new.html.erb</p>
 
-<hr>
+<div class="ui container review-form">
+	<div class="ui segment">
 
-<%= render 'form' %>
+	<%= render 'form', locals: {cyclist: @cyclist}%>
+
+	</div>
+</div>

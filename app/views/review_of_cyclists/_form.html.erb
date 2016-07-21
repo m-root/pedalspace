@@ -2,21 +2,33 @@
   <div>
     <%= f.hidden_field :cyclist_id, value: params[:cyclist_id] %>
   </div>
+  <h2 class="ui header"> How was your experience? </h2>
   <div>
-    <%= f.label :rating %><br>
-    <%= f.number_field :rating %>
+      <%= f.label :rating %><br><br>
+        <div class="ui huge star rating" data-max-rating="10">
+          <%= f.number_field :rating%>
+        </div>
   </div>
   <div>
-    <%= f.label :did_pay %><br>
-    <%= f.check_box :did_pay %>
+  <br>
+  <br>
+  <div class="ui slider checkbox">
+    <!-- Checkbox tag must go ABOVE here for this to work! -->
+    <%= check_box_tag :did_pay %>
+    <%= f.label "Did they pay as expected?" %><br>
   </div>
-  <div>
-    <%= f.label :comments %><br>
-    <%= f.text_field :comments %>
   </div>
-  <div>
-    <%= f.submit "Save" %>
-  </div>
+    <div class="ui padded form">
+      <div class="field">
+        <br><%= f.label :comments %><br>
+        <%= f.text_area :comments , :placeholder => 'Please leave a comment or two about your experience with this customer..' %>
+      </div>
+    </div>
+    <br>
+    <br>
+   <div>
+      <%= button_tag( :class => "ui teal labeled icon button") do %>
+        Submit Review <i class="add icon"></i>
+      <% end %>
+    </div>
 <% end %>
-
-
