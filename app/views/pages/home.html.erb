@@ -19,7 +19,6 @@
  <!-- Start of the GoogleMaps section -->
 
   <div class="ui raised padded container segment">
-  <h3></h3>
   <div id="map"></div>
 
   <script async defer
@@ -30,10 +29,15 @@
 
 	<div>
 		<div id="search-bar" class="ui search">
-		  <div class="ui icon input">
-		    <input class="prompt" type="text" placeholder="Search nearby ...">
-		    <i class="search icon"></i>
-		  </div>
+
+      <%= form_tag(pages_home_path, method: :get, class: "ui icon input" ) do %>
+        <%= text_field_tag("service", "Search nearby...", class: "prompt") %>
+        <%= hidden_field_tag("location", request.safe_location) %>
+        <%= button_tag do %>
+          <i class="search icon"></i>
+        <% end %>
+      <% end %>
+
 		  <div class="results"></div>
 		</div>
 	</div>
